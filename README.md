@@ -14,39 +14,32 @@ Each model is stored in its own folder. A typical model directory may include:
 - Printable files (`.stl`, `.3mf`, etc.).
 - Source/editable files (when available).
 - Preview images/renders.
-- A model-specific `README.md` with print settings and notes.
-- A `LICENSE` file when required, that takes precedence over the repository-level license for that
-  specific model.
+- A model-specific `README.md` with print settings, notes, and a clearly stated license.
+- Additional files only when needed for that specific model.
 
 ### Tree Structure
 
-Models will be roughly grouped by type or theme, but the structure is not strictly enforced to allow
-for flexibility as the collection grows. This structure is more aimed at mantenance of the
-repository than user navigation, since most likely the models will be listed elsewhere (e.g. in a
-website or catalog).
+Models are roughly grouped by type or theme, but the structure is intentionally flexible so it can
+evolve as the collection grows. The layout is designed primarily for repository maintenance rather
+than user navigation, since models will most likely be listed elsewhere (for example, on a website
+or in a catalog).
 
-## Licensing
+## Licensing and Attribution
 
-Unless stated otherwise, original models created by me are licensed under **CC BY-NC-SA 4.0**.
+Each model has its applicable license clearly and unambiguously stated in that model's
+`README.md`. Please refer to each model separately for details.
+
+If a model is a remix or includes third-party content, its `README.md` clearly identifies the
+original author and source, along with any additional notices required by the upstream license.
+
+As a fallback, if no license is indicated anywhere else for a model, that model must be treated as
+licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 - Attribution is required.
 - Commercial use is not allowed.
 - Remixes are allowed under the same license.
 
-If a model is a remix or includes third-party content, that model's folder will include:
-
-- The original license.
-- Attribution to the original creator.
-- Any additional notes required by the upstream license.
-
-Those models remain subject to their respective upstream license terms.
-
-## Attribution
-
-For remixed models, attribution details are provided in the corresponding folder, including the
-original author and source (when available).
-
 ## Notes
 
-Always check the `README.md` and `LICENSE` inside each model directory for the most accurate usage,
-printing, and licensing information.
+Always check each model's `README.md` for the most accurate usage, printing, and licensing
+information.

@@ -1,0 +1,13 @@
+## Ignore everything by default. Make exceptions for specific files and folders below.
+*
+!.gitignore
+
+## Track all relevant project files.
+!**/README.md
+!**/*.stl
+!**/preview.jpg
+
+## Folders to track.
+!models/
+!models/home/
+!models/home/20mm shower bar soap tray/

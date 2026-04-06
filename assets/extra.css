@@ -1,0 +1,9 @@
+/* Custom magenta primary color */
+:root,
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #00c6dc;
+  --md-primary-fg-color--light: #e0409a;
+  --md-primary-fg-color--dark:  #99005c;
+  --md-accent-fg-color:         #ff40aa;
+}

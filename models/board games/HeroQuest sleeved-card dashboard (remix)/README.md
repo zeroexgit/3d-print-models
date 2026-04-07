@@ -37,4 +37,3 @@ This model is a remix of a 3D print model by **TheMagiciaN** obtained from <http
 ## License
 
 This model is licensed under [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/).
-

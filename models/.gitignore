@@ -5,14 +5,16 @@
 ## Track all relevant project files.
 !**/README.md
 !**/*.stl
-!**/preview.*
-!model_readme_template.md
+!**/preview*.jpg
+!**/preview*.png
+!**/preview*.webp
 
 ## Folders to track.
-!models/
+!board games/
+!board games/HeroQuest sleeved-card dashboard (remix)/
 
-!models/home/
-!models/home/20mm shower bar soap tray/
+!home/
+!home/20mm shower bar soap tray/
 
-!models/tools/
-!models/tools/travel toothpaste transfer/
+!tools/
+#!tools/travel toothpaste transfer/

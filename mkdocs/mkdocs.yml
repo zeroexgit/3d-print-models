@@ -10,6 +10,10 @@ site_dir: /tmp/mkdocs_site
 hooks:
   - hooks.py
 
+plugins:
+  - search
+  - glightbox # Better image previewing and lightbox support
+
 theme:
   name: material
   logo: assets/ZeroEx_BWA.png
@@ -37,12 +41,12 @@ theme:
     - toc.integrate
 
 markdown_extensions:
-  - pymdownx.superfences
-  - pymdownx.highlight
+  - admonition
   - attr_list
   - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
   - tables
-  - admonition
 
 exclude_docs: |
   *.3mf

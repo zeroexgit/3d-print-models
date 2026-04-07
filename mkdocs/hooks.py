@@ -17,6 +17,7 @@ OUT = MODELS_DIR / "index.md"
 
 PREVIEW_EXTS = (".jpg", ".jpeg", ".png", ".webp")
 _BRIEF = re.compile(r"^-\s+\*\*Brief\*\*:\s*(.+)$", re.MULTILINE)
+_EXTRA_PREVIEW = re.compile(r"^preview_.+", re.IGNORECASE)
 
 
 def _brief(readme: Path) -> str:
@@ -32,6 +33,18 @@ def _find_preview(model_dir: Path) -> str | None:
         if p.exists():
             return p.name
     return None
+
+
+def _find_extra_previews(model_dir: Path) -> list[str]:
+    extras = []
+    for item in sorted(model_dir.iterdir()):
+        if not item.is_file():
+            continue
+        if item.suffix.lower() not in PREVIEW_EXTS:
+            continue
+        if _EXTRA_PREVIEW.match(item.stem):
+            extras.append(item.name)
+    return extras
 
 
 def _build_gallery() -> str:
@@ -58,6 +71,7 @@ def _build_gallery() -> str:
                 continue
 
             preview = _find_preview(model_dir)
+            extra_previews = _find_extra_previews(model_dir)
             rel_page = f"{cat.name}/{model_dir.name}/README.md"
             desc = _brief(readme)
 
@@ -69,6 +83,13 @@ def _build_gallery() -> str:
                 short = desc if len(desc) <= 120 else desc[:117] + "…"
                 lines.append("")
                 lines.append(f"    {short}")
+            if extra_previews:
+                extra_images = " ".join(
+                    f"![]({cat.name}/{model_dir.name}/{name}){{ width=96 loading=lazy }}"
+                    for name in extra_previews
+                )
+                lines.append("")
+                lines.append(f"    {extra_images}")
             lines.append("")
 
     lines += ["</div>", ""]

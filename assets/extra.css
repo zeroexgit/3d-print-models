@@ -7,3 +7,26 @@
   --md-primary-fg-color--dark:  #99005c;
   --md-accent-fg-color:         #ff40aa;
 }
+
+/* On model pages, lay out all consecutive preview images side by side.
+   glightbox wraps each <img> in an <a>, so we flex the <a> elements.
+   Excludes grid card thumbnails so the gallery index is unaffected. */
+.md-content p:has(img):not(.grid.cards p) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.md-content p:has(img):not(.grid.cards p) > a {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 480px;
+}
+
+.md-content p:has(img):not(.grid.cards p) > a img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}

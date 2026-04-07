@@ -15,6 +15,8 @@ type: remix
 
 You can find assembly instructions in the original model's description; insert the nut from below and tighten onto the bolt with the shower bar in between.
 
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
 ## Attribution
 
 This model is a remix of a 3D print model by **Regis** obtained from

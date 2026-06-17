@@ -8,7 +8,6 @@ type: reupload
 
 - **Brief**: Gridfinity holder for a deburring tool.
 - **Tags**: `gridfinity`, `deburring tool`, `holder`, `workshop`.
-- **Original**: [Printables](https://www.printables.com/model/612387-gridfinity-deburring-tool-holder)
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

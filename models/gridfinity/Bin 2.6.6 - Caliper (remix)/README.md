@@ -8,7 +8,6 @@ type: remix
 
 - **Brief**: Gridfinity caliper organizer.
 - **Tags**: `gridfinity`, `caliper`, `organizer`, `tool holder`.
-- **Original**: [Printables](https://www.printables.com/model/1086568-gridfinity-caliper)
 
 Gridfinity caliper holder.
 

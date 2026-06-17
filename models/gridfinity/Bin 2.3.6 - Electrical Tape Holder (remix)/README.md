@@ -8,7 +8,6 @@ type: remix
 
 - **Brief**: Gridfinity container for 6 small electrical tape spools, sized exactly to 3x3x6 for stackability.
 - **Tags**: `gridfinity`, `electrical tape`, `holder`, `magnet`, `stackable`.
-- **Original**: [Printables](https://www.printables.com/model/421237-electrical-tape-holder-gridfinity)
 
 Gridfinity container for electrical tapes with room for 6 small spools.
 

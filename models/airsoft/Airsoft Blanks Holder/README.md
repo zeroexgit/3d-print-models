@@ -10,11 +10,13 @@ type: original
 
 - **Brief**: 9mm Airsoft Blanks Holder.
 - **Tags**: `airsoft`, `grenade`, `blanks`, `molle`, `tactical`.
-- - **Published**:
+<!--
+- **Published**:
   [Thingiverse](link-goes-here),
   [Printables](link-goes-here),
   [MakerWorld](link-goes-here),
   [Cults3D](link-goes-here).
+  -->
 
 Holder for 9mm Airsoft blanks, compatible with the Kimera Kamikaze Grenade and similar shells. Stores up to 6 rounds. Triple-thickness rear wall and a transport cap to protect against accidental activations; don't carry these loose in your pocket! Looks like a toy given its size, but it's fully functional and purpose-built for Airsoft.
 

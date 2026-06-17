@@ -12,11 +12,13 @@ type: original
 
 - **Brief**: Kimera Kamikaze XS Airsoft Grenade Holder.
 - **Tags**: `airsoft`, `grenade`, `molle`, `tactical`.
-- - **Published**:
+<!--
+- **Published**:
   [Thingiverse](link-goes-here),
   [Printables](link-goes-here),
   [MakerWorld](link-goes-here),
   [Cults3D](link-goes-here).
+-->
 
 MOLLE and belt compatible. One-handed quick draw: the retention is built-in so you can retrieve the grenade without letting go of your replica. Strong retention in any orientation, plus an elastic strap for extra security during transport.
 

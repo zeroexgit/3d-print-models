@@ -2,7 +2,7 @@
 type: proxy
 ---
 
-# FN-BB90
+# FN-BB90 (proxy)
 
 ![Preview](preview.jpg)
 

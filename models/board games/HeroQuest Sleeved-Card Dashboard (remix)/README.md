@@ -2,7 +2,7 @@
 type: remix
 ---
 
-# HeroQuest Sleeved-card Dashboard (remix)
+# HeroQuest Sleeved-Card Dashboard (remix)
 
 ![Preview](preview.jpg)
 ![Preview_1](preview_1.jpg)
@@ -11,12 +11,12 @@ type: remix
 
 - **Brief**: Sleeved-card holder for HeroQuest board game and other similar card games.
 - **Tags**: `dnd`, `cardholder`, `dashboard`, `heroquest`.
-- - **Published**: [Thingiverse](link-goes-here),
+<!--
+- **Published**: [Thingiverse](link-goes-here),
   [Printables](link-goes-here),
   [MakerWorld](link-goes-here),
   [Cults3D](link-goes-here).
-
-Full text description of the model goes here. You can also include assembly instructions if applicable.
+-->
 
 Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 

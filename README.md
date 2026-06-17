@@ -1,6 +1,7 @@
 # 3D Printable Models
 
 This repository is the canonical source for my 3D printable models and related files.
+You can browse all models in this repository's [GitHub Pages site](https://zeroexgit.github.io/3d-print-models/).
 
 Models are published here first and may also be uploaded to other platforms. If differences exist
 between platforms, this repository is the reference version.

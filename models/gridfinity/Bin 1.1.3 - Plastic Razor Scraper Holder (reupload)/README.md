@@ -8,7 +8,6 @@ type: reupload
 
 - **Brief**: Gridfinity 3x1 holder for a plastic razor scraper with magnets.
 - **Tags**: `gridfinity`, `holder`, `razor scraper`, `magnet`.
-- **Original**: [Printables](https://www.printables.com/model/1138703-plastic-razor-scraper-holder-gridfinity-3x1-w-magn)
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

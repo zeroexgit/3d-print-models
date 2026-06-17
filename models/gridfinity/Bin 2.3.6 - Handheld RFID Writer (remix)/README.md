@@ -8,7 +8,6 @@ type: remix
 
 - **Brief**: Gridfinity remix for a handheld RFID writer, packed into a 2x3x6 unit bin with lip notches and magnet holes.
 - **Tags**: `gridfinity`, `rfid`, `writer`, `holder`, `magnet`.
-- **Original**: [Printables](https://www.printables.com/model/871504-handheld-rfid-writer-gridfinity/files)
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

@@ -2,7 +2,7 @@
 type: reupload
 ---
 
-# 18650 Battery TPU Cap
+# 18650 battery TPU cap (reupload)
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)

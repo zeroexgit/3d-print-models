@@ -2,7 +2,7 @@
 type: original
 ---
 
-# Model Name Here
+# Airsoft Grenade Holder for Kimera Kamikaze XS
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)

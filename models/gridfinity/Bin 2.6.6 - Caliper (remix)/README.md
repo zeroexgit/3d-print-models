@@ -30,8 +30,6 @@ more models and check for updates to this one.
 > Caliper organizer by GRIDFINITY design.
 >
 > Based on the Gridfinity System from Zack Freedman: https://thangs.com/designer/ZackFreedman
->
-> https://www.youtube.com/c/
 
 <!------------------------------------------------------------------------------------------------->
 ## License

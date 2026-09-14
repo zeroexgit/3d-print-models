@@ -18,11 +18,13 @@ type: remix
   [Cults3D](link-goes-here).
 -->
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
-
+<!------------------------------------------------------------------------------------------------->
 ## Attribution
+<!------------------------------------------------------------------------------------------------->
 
 This model is a remix of a 3D print model by **TheMagiciaN** obtained from <https://www.printables.com/model/662883-heroquest-card-dashboard>.
+
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
@@ -34,6 +36,8 @@ This model is a remix of a 3D print model by **TheMagiciaN** obtained from <http
 >
 > The Bottom part allows you to safely lift this dashboard from the table without any cards falling out (don't move the dashboard too fast though, the “grip” on the cards is not that firm), while the internal grooves make it easy to flip through the cards.
 
+<!------------------------------------------------------------------------------------------------->
 ## License
+<!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/).

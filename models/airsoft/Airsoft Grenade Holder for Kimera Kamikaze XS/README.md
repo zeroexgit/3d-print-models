@@ -20,14 +20,22 @@ type: original
   [Cults3D](link-goes-here).
 -->
 
-MOLLE and belt compatible. One-handed quick draw: the retention is built-in so you can retrieve the grenade without letting go of your replica. Strong retention in any orientation, plus an elastic strap for extra security during transport.
+MOLLE and belt compatible. One-handed quick draw: the retention is built-in so
+you can retrieve the grenade without letting go of your replica. Strong
+retention in any orientation, plus an elastic strap for extra security during
+transport.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
-
+<!------------------------------------------------------------------------------------------------->
 ## Attribution
+<!------------------------------------------------------------------------------------------------->
 
 This is an original 3D print model.
 
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/)
+to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
+<!------------------------------------------------------------------------------------------------->
 
 Single User License (No Redistribution, No Commercial Use).

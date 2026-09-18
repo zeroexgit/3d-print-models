@@ -2,7 +2,7 @@
 type: remix
 ---
 
-# Bin 2.3.6 - Electrical Tape Holder (remix)
+# Gridfinity - Bin 2.3.6 - Electrical Tape Holder (remix)
 
 ![Preview](preview.jpg)
 

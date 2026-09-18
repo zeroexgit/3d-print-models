@@ -2,13 +2,20 @@
 type: remix
 ---
 
-# Bin 1.2.6 - Euro Power Plug Holder (remix)
+# Gridfinity - Bin 1.2.6 - Euro Power Plug Holder (remix)
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
 
 - **Brief**: Gridfinity remix for euro USB power plugs, resized to 1x2x6 with lip notches and magnet holes.
 - **Tags**: `gridfinity`, `power plug`, `euro plug`, `usb charger`, `magnet`.
+<!--
+- **Published**:
+  [Thingiverse](link-goes-here),
+  [Printables](link-goes-here),
+  [MakerWorld](link-goes-here),
+  [Cults3D](link-goes-here).
+-->
 
 Gridfinity bin remix for euro USB power plugs.
 

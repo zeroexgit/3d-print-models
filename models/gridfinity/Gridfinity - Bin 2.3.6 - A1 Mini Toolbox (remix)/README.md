@@ -2,31 +2,34 @@
 type: remix
 ---
 
-# Bin 2.3.6 - Handheld RFID Writer (remix)
+# Gridfinity - Bin 2.3.6 - A1 Mini Toolbox (remix)
 
 ![Preview](preview.jpg)
 
-- **Brief**: Gridfinity remix for a handheld RFID writer, packed into a 2x3x6 unit bin with lip notches and magnet holes.
-- **Tags**: `gridfinity`, `rfid`, `writer`, `holder`, `magnet`.
+- **Brief**: Gridfinity 4x3x6U A1/A1 Mini toolbox remix with magnetic base, simplified stacking lip, and bigger label.
+- **Tags**: `gridfinity`, `toolbox`, `a1 mini`, `bambu lab`, `magnet`.
+
+Gridfinity bin for 4x3x6U A1/A1 Mini accesories.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution
 <!------------------------------------------------------------------------------------------------->
 
-This model is a remix of a 3D print model by **kilinccagatay** obtained from <https://www.printables.com/model/871504-handheld-rfid-writer-gridfinity/files>.
+This model is a remix of a 3D print model by **Brice Hoogenboom** obtained from <https://www.printables.com/model/699737-a1a1-mini-toolbox-gridfinity>.
 
 Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
 more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
-- Packed into a 2x3x6 unit bin size.
-- Added lip notches.
-- Added magnet holes.
+- Simplified base with magnetic inserts.
+- Simplified stacking lip and added lip notches.
 
 ### Original Description
 
-> Handheld RFID Writer gridfinity
+> Gridfinity 4x3x6U A1/A1 Mini toolbox w/ tray insert. No handle, bigger label. Hinges & other
+> needed items please get from original Pred model. No parametric, had to break a few things to
+> get handle out, and label correct because I'm a newb.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

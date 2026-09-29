@@ -1,5 +1,6 @@
 ---
 type: original
+category: sports/airsoft
 ---
 
 # Airsoft Blanks Holder

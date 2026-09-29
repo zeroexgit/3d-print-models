@@ -1,5 +1,6 @@
 ---
 type: original
+category: sports/airsoft
 ---
 
 # Airsoft Grenade Holder for Kimera Kamikaze XS

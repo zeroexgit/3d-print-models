@@ -1,5 +1,6 @@
 ---
 type: remix
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 2.3.6 - A1 Mini Toolbox (remix)
@@ -7,7 +8,15 @@ type: remix
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity 4x3x6U A1/A1 Mini toolbox remix with magnetic base, simplified stacking lip, and bigger label.
-- **Tags**: `gridfinity`, `toolbox`, `a1 mini`, `bambu lab`, `magnet`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
+- **Published**:
+  [Thingiverse](https://www.thingiverse.com/thing:7415530).
+<!--
+  [Printables](link-goes-here),
+  [MakerWorld](link-goes-here),
+  [Cults3D](link-goes-here).
+-->
+
 
 Gridfinity bin for 4x3x6U A1/A1 Mini accesories.
 

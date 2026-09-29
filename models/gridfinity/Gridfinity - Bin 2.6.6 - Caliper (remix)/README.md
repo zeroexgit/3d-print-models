@@ -1,5 +1,6 @@
 ---
 type: remix
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 2.6.6 - Caliper (remix)
@@ -7,7 +8,7 @@ type: remix
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity caliper organizer.
-- **Tags**: `gridfinity`, `caliper`, `organizer`, `tool holder`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 Gridfinity caliper holder.
 

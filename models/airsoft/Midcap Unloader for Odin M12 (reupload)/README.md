@@ -1,5 +1,6 @@
 ---
 type: reupload
+category: sports/airsoft
 ---
 
 # Midcap Unloader for Odin M12 (reupload)

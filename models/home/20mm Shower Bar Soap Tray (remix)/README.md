@@ -1,5 +1,6 @@
 ---
 type: remix
+category: home/bathroom
 ---
 
 # 20mm Shower Bar Soap Tray (remix)

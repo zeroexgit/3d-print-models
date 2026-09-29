@@ -1,5 +1,6 @@
 ---
 type: remix
+category: toys/game-accessories
 ---
 
 # HeroQuest Sleeved-Card Dashboard (remix)

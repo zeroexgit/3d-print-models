@@ -1,5 +1,6 @@
 ---
 type: proxy
+category: sports/airsoft
 ---
 
 # FN-BB90 (proxy)

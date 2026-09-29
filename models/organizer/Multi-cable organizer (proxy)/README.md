@@ -1,5 +1,6 @@
 ---
 type: proxy
+category: home/office
 ---
 
 # Multi-cable organizer (proxy)

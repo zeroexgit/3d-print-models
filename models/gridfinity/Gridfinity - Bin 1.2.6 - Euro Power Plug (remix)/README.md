@@ -3,7 +3,7 @@ type: remix
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 1.2.6 - Euro Power Plug Holder (remix)
+# Gridfinity - Bin 1.2.6 - Euro Power Plug (remix)
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)

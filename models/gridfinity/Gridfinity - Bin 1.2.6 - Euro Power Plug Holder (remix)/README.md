@@ -10,13 +10,11 @@ category: tools/organizers
 
 - **Brief**: Gridfinity remix for euro USB power plugs, resized to 1x2x6 with lip notches and magnet holes.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Thingiverse](https://www.thingiverse.com/thing:7416216),
+  [Printables](https://www.printables.com/model/1860234-gridfinity-bin-126-euro-power-plug-holder-remix),
+  [MakerWorld](https://makerworld.com/en/models/3372902-gridfinity-bin-1-2-6-euro-power-plug-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-1-2-6-euro-power-plug-holder-remix-zeroex-3fb1).
 
 Gridfinity bin remix for euro USB power plugs.
 

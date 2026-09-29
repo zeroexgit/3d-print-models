@@ -1,5 +1,6 @@
 ---
 type: reupload
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 1.1.3 - Plastic Razor Scraper Holder (reupload)
@@ -7,7 +8,7 @@ type: reupload
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity 3x1 holder for a plastic razor scraper with magnets.
-- **Tags**: `gridfinity`, `holder`, `razor scraper`, `magnet`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

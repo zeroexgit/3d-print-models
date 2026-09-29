@@ -1,5 +1,6 @@
 ---
 type: reupload
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 1.4.3 - Deburring Tool Holder (reupload)
@@ -7,7 +8,7 @@ type: reupload
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity holder for a deburring tool.
-- **Tags**: `gridfinity`, `deburring tool`, `holder`, `workshop`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

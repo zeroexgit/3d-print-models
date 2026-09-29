@@ -1,5 +1,6 @@
 ---
 type: reupload
+category: home/office
 ---
 
 # Under-desk headphone hook (reupload)

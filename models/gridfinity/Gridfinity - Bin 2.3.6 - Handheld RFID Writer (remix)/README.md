@@ -1,5 +1,6 @@
 ---
 type: remix
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 2.3.6 - Handheld RFID Writer (remix)
@@ -7,7 +8,7 @@ type: remix
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity remix for a handheld RFID writer, packed into a 2x3x6 unit bin with lip notches and magnet holes.
-- **Tags**: `gridfinity`, `rfid`, `writer`, `holder`, `magnet`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

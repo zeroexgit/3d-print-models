@@ -1,5 +1,6 @@
 ---
 type: remix
+category: tools/organizers
 ---
 
 # Gridfinity - Bin 2.3.6 - Electrical Tape Holder (remix)
@@ -7,7 +8,7 @@ type: remix
 ![Preview](preview.jpg)
 
 - **Brief**: Gridfinity container for 6 small electrical tape spools, sized exactly to 3x3x6 for stackability.
-- **Tags**: `gridfinity`, `electrical tape`, `holder`, `magnet`, `stackable`.
+- **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 Gridfinity container for electrical tapes with room for 6 small spools.
 

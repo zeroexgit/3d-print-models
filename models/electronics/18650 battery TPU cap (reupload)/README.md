@@ -1,5 +1,6 @@
 ---
 type: reupload
+category: maker/electronics
 ---
 
 # 18650 battery TPU cap (reupload)

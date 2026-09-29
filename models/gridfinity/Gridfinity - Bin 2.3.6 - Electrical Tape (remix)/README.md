@@ -3,7 +3,7 @@ type: remix
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 2.3.6 - Electrical Tape Holder (remix)
+# Gridfinity - Bin 2.3.6 - Electrical Tape (remix)
 
 ![Preview](preview.jpg)
 

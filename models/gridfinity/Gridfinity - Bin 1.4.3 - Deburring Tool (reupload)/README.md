@@ -3,18 +3,18 @@ type: reupload
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 1.1.3 - Plastic Razor Scraper Holder (reupload)
+# Gridfinity - Bin 1.4.3 - Deburring Tool (reupload)
 
 ![Preview](preview.jpg)
 
-- **Brief**: Gridfinity 3x1 holder for a plastic razor scraper with magnets.
+- **Brief**: Gridfinity holder for a deburring tool.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution
 <!------------------------------------------------------------------------------------------------->
 
-This model is a reupload of a 3D print model by **MisterPl0w** obtained from <https://www.printables.com/model/1138703-plastic-razor-scraper-holder-gridfinity-3x1-w-magn>.
+This model is a reupload of a 3D print model by **Nicklascs** obtained from <https://www.printables.com/model/612387-gridfinity-deburring-tool-holder>.
 
 I've reuploaded this model only to this repository and its website catalog to make the model
 easier to discover, provide a stable reference for what I print, and keep a backup in case the
@@ -23,7 +23,7 @@ redistribution/resharing (including non-commercial constraints where applicable)
 
 ### Original Description
 
-> Plastic Razor Scraper Holder, Gridfinity 3x1, with magnets.
+> Gridfinity deburring tool holder.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

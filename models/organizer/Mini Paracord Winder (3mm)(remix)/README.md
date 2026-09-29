@@ -10,6 +10,12 @@ category: tools/organizers
 
 - **Brief**: Compact packable winder for 3mm paracord, remixed from the 4mm mini variant.
 - **Tags**: `paracord`, `winder`, `organizer`, `hiking`, `camping`, `edc`, `3mm`.
+- **Published**:
+  [Thingiverse](https://www.thingiverse.com/thing:7416253).
+  [Printables](https://www.printables.com/model/1860245-mini-paracord-winder-3mmremix),
+  [MakerWorld](https://makerworld.com/en/models/3373099-mini-paracord-winder-3mm-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/mini-paracord-winder-3mm-remix).
+
 
 This is a remix of the smaller variant of BuildX's Mini Paracord Winder, rescaled to fit 3mm paracord.
 

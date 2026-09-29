@@ -9,6 +9,11 @@ category: tools/organizers
 
 - **Brief**: Gridfinity container for 6 small electrical tape spools, sized exactly to 3x3x6 for stackability.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
+- **Published**:
+  [Thingiverse](https://www.thingiverse.com/thing:7416215).
+  [Printables](https://www.printables.com/model/1860225-gridfinity-bin-236-electrical-tape-holder-remix),
+  [MakerWorld](https://makerworld.com/en/models/3372814-gridfinity-bin-2-3-6-electrical-tape-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-2-3-6-electrical-tape-holder-remix).
 
 Gridfinity container for electrical tapes with room for 6 small spools.
 

@@ -9,6 +9,14 @@ category: tools/organizers
 
 - **Brief**: Gridfinity remix for a handheld RFID writer, packed into a 2x3x6 unit bin with lip notches and magnet holes.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
+- **Published**:
+  [Thingiverse](https://www.thingiverse.com/thing:7416219).
+  [Printables](https://www.printables.com/model/1860242-gridfinity-bin-236-handheld-rfid-writer-remix),
+  [MakerWorld](https://makerworld.com/en/models/3372936-gridfinity-bin-2-3-6-rfid-writer-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-2-3-6-handheld-rfid-writer-remix).
+
+For small RFID writers, found on many online retailers. Stacks particularly well with a
+2x3x6 generic bin Gridfinity underneath to store blank RFID tags.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

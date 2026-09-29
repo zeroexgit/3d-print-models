@@ -10,8 +10,25 @@
 set -euo pipefail
 
 MODELS_DIR="$(cd "$(dirname "$0")/../models" && pwd)"
+CATEGORIES_FILE="$MODELS_DIR/model-template/categories.md"
 DECORATOR='<!------------------------------------------------------------------------------------------------->'
 errors=0
+
+# Load valid "family/category" pairs from categories.md.
+declare -A VALID_CATEGORIES
+if [[ -f "$CATEGORIES_FILE" ]]; then
+  current_family=""
+  while IFS= read -r line; do
+    if [[ "$line" =~ ^-\ ([a-z0-9-]+) ]]; then
+      current_family="${BASH_REMATCH[1]}"
+    elif [[ "$line" =~ ^[[:space:]]+-\ ([a-z0-9-]+) ]]; then
+      [[ -n "$current_family" ]] && VALID_CATEGORIES["$current_family/${BASH_REMATCH[1]}"]=1
+    fi
+  done < "$CATEGORIES_FILE"
+else
+  echo "MISSING categories.md: $CATEGORIES_FILE"
+  ((errors += 1))
+fi
 
 require_pattern() {
   local readme="$1"
@@ -42,6 +59,23 @@ check_decorated_heading() {
   fi
 }
 
+# Print only the lines between the first two `---` delimiters (the frontmatter block).
+frontmatter() {
+  local readme="$1"
+  awk '
+    /^---$/ { delim += 1; next }
+    delim == 1 { print }
+    delim >= 2 { exit }
+  ' "$readme"
+}
+
+# Read a single `key: value` field from a README frontmatter block.
+frontmatter_field() {
+  local readme="$1"
+  local key="$2"
+  frontmatter "$readme" | grep "^${key}:" | head -1 | sed "s/^${key}: //"
+}
+
 check_model() {
   local readme="$1"
   local folder
@@ -54,12 +88,15 @@ check_model() {
   title=$(grep "^#" "$readme" 2>/dev/null | head -1 | sed 's/^# //')
 
   local type
-  type=$(grep "^type:" "$readme" 2>/dev/null | head -1 | sed 's/type: //')
+  type=$(frontmatter_field "$readme" "type") || true
+
+  local category
+  category=$(frontmatter_field "$readme" "category") || true
 
   # 1. Title must exist
   if [[ -z "$title" ]]; then
     echo "MISSING TITLE: $folder"
-    ((errors++))
+    ((errors += 1))
     return
   fi
 
@@ -68,22 +105,31 @@ check_model() {
     echo "TITLE MISMATCH:"
     echo "  Folder: $folder"
     echo "  Title:  $title"
-    ((errors++))
+    ((errors += 1))
   fi
 
   # 3. type field must match suffix
   if [[ "$title" == *"(remix)"* && "$type" != "remix" ]]; then
     echo "TYPE MISMATCH: '$title' has (remix) but type='$type'"
-    ((errors++))
+    ((errors += 1))
   elif [[ "$title" == *"(reupload)"* && "$type" != "reupload" ]]; then
     echo "TYPE MISMATCH: '$title' has (reupload) but type='$type'"
-    ((errors++))
+    ((errors += 1))
   elif [[ "$title" == *"(proxy)"* && "$type" != "proxy" ]]; then
     echo "TYPE MISMATCH: '$title' has (proxy) but type='$type'"
-    ((errors++))
+    ((errors += 1))
   elif [[ "$title" != *"("* && "$type" != "original" ]]; then
     echo "TYPE MISMATCH: '$title' has no suffix but type='$type'"
-    ((errors++))
+    ((errors += 1))
+  fi
+
+  # 4. category field must exist and be a valid "family/category" pair from categories.md
+  if [[ -z "$category" ]]; then
+    echo "MISSING CATEGORY: $folder"
+    ((errors += 1))
+  elif [[ -z "${VALID_CATEGORIES[$category]+x}" ]]; then
+    echo "INVALID CATEGORY: '$folder' has category='$category' (not in categories.md)"
+    ((errors += 1))
   fi
 
   require_pattern "$readme" '^!\[Preview\]\(preview\.jpg\)(\{[^}]+\})?$' "CANONICAL PREVIEW"

@@ -11,13 +11,11 @@ category: tools/organizers
 
 - **Brief**: Gridfinity holder for a PURIDEA S16 power bank.
 - **Tags**: `gridfinity`, `storage`, `electronics`, `battery bank`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
+  [Thingiverse](https://www.thingiverse.com/thing:7416302),
+  [Printables](https://www.printables.com/model/1860437-gridfinity-bin-123-puridea-s16-power-bank),
   [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-1-2-3-puridea-s16-power-bank).
 
 Gridfinity bin sized 1x2x3 for holding a PURIDEA S16 power bank.
 

@@ -11,13 +11,11 @@ category: tools/organizers
 
 - **Brief**: Gridfinity holder for an Aukey SK-A2 Bluetooth speaker.
 - **Tags**: `gridfinity`, `storage`, `audio`, `speaker`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Thingiverse](https://www.thingiverse.com/thing:7416441),
+  [Printables](https://www.printables.com/model/1860792-gridfinity-bin-256-aukey-sk-a2-bluetooth-speaker),
+  [MakerWorld](https://makerworld.com/en/models/3375387-gridfinity-bin-2-5-6-aukey-sk-a2-speaker),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-2-5-6-aukey-sk-a2-bluetooth-speaker).
 
 Gridfinity bin sized 2x5x6 for holding an Aukey SK-A2 Bluetooth speaker.
 

@@ -11,13 +11,11 @@ category: tools/organizers
 
 - **Brief**: Gridfinity bin for a compact wireless lavalier microphone kit.
 - **Tags**: `gridfinity`, `storage`, `audio`, `microphone`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Thingiverse](https://www.thingiverse.com/thing:7416448),
+  [Printables](https://www.printables.com/model/1860838-gridfinity-bin-133-wireless-lavalier-microphone),
+  [MakerWorld](https://makerworld.com/en/models/3375400-gridfinity-bin-1-3-3-wireless-lavalier-mic),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-1-3-3-wireless-lavalier-microphone).
 
 Gridfinity bin sized 1x3x3 for a compact wireless lavalier microphone kit. The seller described the
 kit as including a charging case and receiver for use with phones, tablets, gaming, and live

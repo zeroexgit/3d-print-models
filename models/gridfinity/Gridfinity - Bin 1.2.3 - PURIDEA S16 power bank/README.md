@@ -14,7 +14,7 @@ category: tools/organizers
 - **Published**:
   [Thingiverse](https://www.thingiverse.com/thing:7416302),
   [Printables](https://www.printables.com/model/1860437-gridfinity-bin-123-puridea-s16-power-bank),
-  [MakerWorld](link-goes-here),
+  [MakerWorld](https://makerworld.com/en/models/3375361-gridfinity-bin-1-2-3-puridea-s16-power-bank),
   [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-1-2-3-puridea-s16-power-bank).
 
 Gridfinity bin sized 1x2x3 for holding a PURIDEA S16 power bank.

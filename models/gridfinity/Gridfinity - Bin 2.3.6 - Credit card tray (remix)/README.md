@@ -11,13 +11,11 @@ category: tools/organizers
 
 - **Brief**: Stackable Gridfinity tray for storing credit cards.
 - **Tags**: `gridfinity`, `storage`, `cards`, `stackable`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Thingiverse](https://www.thingiverse.com/thing:7416487),
+  [Printables](https://www.printables.com/model/1860863-gridfinity-bin-236-credit-card-tray-remix),
+  [MakerWorld](https://makerworld.com/en/models/3375850-gridfinity-bin-2-3-6-credit-card-tray-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-2-3-6-credit-card-tray-remix).
 
 Stackable Gridfinity tray for credit cards, modified to fit more cards (25+).
 

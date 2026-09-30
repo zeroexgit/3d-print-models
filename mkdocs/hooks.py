@@ -25,7 +25,7 @@ _BRIEF = re.compile(r"^-\s+\*\*Brief\*\*:\s*(.+)$", re.MULTILINE)
 _EXTRA_PREVIEW = re.compile(r"^preview_.+", re.IGNORECASE)
 
 # Category folders to skip (not real model categories)
-_SKIP_DIRS = {"model-template"}
+_SKIP_DIRS = {"_model-templates"}
 
 
 def _brief(readme: Path) -> str:

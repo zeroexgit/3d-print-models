@@ -58,6 +58,7 @@ exclude_docs: |
   mkdocs/
   models/.gitignore
   models/model_readme_template.md
+  models/_model-templates/**
 
 extra_css:
   - assets/extra.css

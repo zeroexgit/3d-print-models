@@ -8,6 +8,11 @@
   --md-accent-fg-color:         #ff40aa;
 }
 
+/* Material sets a fixed max-width on this wrapper; widen the full site layout. */
+.md-grid {
+  max-width: 80rem;
+}
+
 /* On model pages, lay out all consecutive preview images side by side.
    glightbox wraps each <img> in an <a>, so we flex the <a> elements.
    Excludes grid card thumbnails so the gallery index is unaffected. */

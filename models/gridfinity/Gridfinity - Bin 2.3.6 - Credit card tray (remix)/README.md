@@ -32,7 +32,7 @@ more models and check for updates to this one.
 
 - Resized to 2x3x6.
 - Added stacking lips.
-- Added magnet holes.
+- Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description
 

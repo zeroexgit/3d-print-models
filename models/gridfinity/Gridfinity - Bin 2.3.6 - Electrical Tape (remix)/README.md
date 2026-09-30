@@ -28,7 +28,7 @@ more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
-- Simplified magnet holes.
+- Simplified the magnet holes for 6x2 mm press-fit magnets.
 - Added lip notches.
 - Ensured size is exactly 3x3x6 for stackability.
 

@@ -7,15 +7,14 @@ category: tools/organizers
 
 ![Preview](preview.jpg)
 
-- **Brief**: Gridfinity 4x3x6U A1/A1 Mini toolbox remix with magnetic base, simplified stacking lip, and bigger label.
+- **Brief**: Gridfinity 4x3x6U A1/A1 Mini toolbox remix with a 6x2 mm press-fit magnetic base,
+  simplified stacking lip, and bigger label.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 - **Published**:
   [Thingiverse](https://www.thingiverse.com/thing:7415530).
   [Printables](https://www.printables.com/model/1860215-gridfinity-bin-236-a1-mini-toolbox-remix),
   [MakerWorld](https://makerworld.com/en/models/3372656-gridfinity-bin-2-3-6-a1-mini-toolbox-remix),
   [Cults3D](https://cults3d.com/en/3d-model/tool/gridfinity-bin-2-3-6-a1-mini-toolbox-remix).
-
-
 
 Gridfinity bin for 4x3x6U A1/A1 Mini accesories.
 
@@ -30,8 +29,8 @@ more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
-- Simplified base with magnetic inserts.
-- Simplified stacking lip and added lip notches.
+- Simplified the base around its 6x2 mm press-fit magnet holes.
+- Simplified the stacking lip and added lip notches.
 
 ### Original Description
 

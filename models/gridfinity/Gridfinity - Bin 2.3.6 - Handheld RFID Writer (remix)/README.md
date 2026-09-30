@@ -7,7 +7,8 @@ category: tools/organizers
 
 ![Preview](preview.jpg)
 
-- **Brief**: Gridfinity remix for a handheld RFID writer, packed into a 2x3x6 unit bin with lip notches and magnet holes.
+- **Brief**: Gridfinity handheld RFID writer bin, packed into 2x3x6 units with lip notches and
+  press-fit holes for 6x2 mm magnets.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 - **Published**:
   [Thingiverse](https://www.thingiverse.com/thing:7416219).
@@ -31,7 +32,7 @@ more models and check for updates to this one.
 
 - Packed into a 2x3x6 unit bin size.
 - Added lip notches.
-- Added magnet holes.
+- Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description
 

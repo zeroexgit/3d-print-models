@@ -331,16 +331,29 @@ checkPreviewFileExists() {
 checkAssetsDirectoryIsIgnored() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
-    local relative_assets_dir="${model_dir#"$REPOSITORY_DIR"/}/assets"
     local assets_dir="$model_dir/assets"
+    local assets_gitignore="$assets_dir/.gitignore"
+    local asset_path
+    local relative_asset_path
 
     [[ -d "$assets_dir" ]] || return 0
 
-    if ! git -C "$REPOSITORY_DIR" check-ignore --quiet --no-index -- \
-        "$relative_assets_dir"; then
-        reportIssue "ASSETS DIRECTORY IS NOT GIT-IGNORED" "$readme"
-        return 1
+    if [[ ! -f "$assets_gitignore" ]]; then
+        if ! printf '*\n' >"$assets_gitignore"; then
+            reportIssue "COULD NOT CREATE $assets_gitignore" "$readme"
+            return 1
+        fi
+        printf 'CREATED %s\n' "$assets_gitignore"
     fi
+
+    while IFS= read -r -d '' asset_path; do
+        relative_asset_path="${asset_path#"$REPOSITORY_DIR"/}"
+        if ! git -C "$REPOSITORY_DIR" check-ignore --quiet --no-index -- \
+            "$relative_asset_path"; then
+            reportIssue "ASSETS CONTENT IS NOT GIT-IGNORED: $relative_asset_path" "$readme"
+            return 1
+        fi
+    done < <(find "$assets_dir" -mindepth 1 -print0)
 }
 
 checkNoPlaceholderLinks() {

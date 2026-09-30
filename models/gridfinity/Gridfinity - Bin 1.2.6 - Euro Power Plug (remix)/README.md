@@ -8,7 +8,8 @@ category: tools/organizers
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
 
-- **Brief**: Gridfinity remix for euro USB power plugs, resized to 1x2x6 with lip notches and magnet holes.
+- **Brief**: Gridfinity euro USB power-plug bin resized to 1x2x6, with lip notches and press-fit
+  holes for 6x2 mm magnets.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
 - **Published**:
   [Thingiverse](https://www.thingiverse.com/thing:7416216),
@@ -30,7 +31,8 @@ more models and check for updates to this one.
 ### Differences of the remix compared to the original
 
 - Increase size to 1x2x6.
-- Added lip notches and magnet holes.
+- Added lip notches.
+- Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description
 

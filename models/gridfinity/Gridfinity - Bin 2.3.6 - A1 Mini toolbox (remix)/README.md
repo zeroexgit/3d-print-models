@@ -3,7 +3,7 @@ type: remix
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 2.3.6 - A1 Mini Toolbox (remix)
+# Gridfinity - Bin 2.3.6 - A1 Mini toolbox (remix)
 
 ![Preview](preview.jpg)
 

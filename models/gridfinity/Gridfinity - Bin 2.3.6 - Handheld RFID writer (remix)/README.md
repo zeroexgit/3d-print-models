@@ -3,7 +3,7 @@ type: remix
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 2.3.6 - Handheld RFID Writer (remix)
+# Gridfinity - Bin 2.3.6 - Handheld RFID writer (remix)
 
 ![Preview](preview.jpg)
 

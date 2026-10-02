@@ -7,4 +7,4 @@ updated: 2026-05-19
 
 # Contact
 
-Placeholder for contact info.
+zeroex.registry101@passinbox.com

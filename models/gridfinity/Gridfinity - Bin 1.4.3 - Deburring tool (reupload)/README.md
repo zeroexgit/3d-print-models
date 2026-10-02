@@ -3,7 +3,7 @@ type: reupload
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 1.4.3 - Deburring Tool (reupload)
+# Gridfinity - Bin 1.4.3 - Deburring tool (reupload)
 
 ![Preview](preview.jpg)
 

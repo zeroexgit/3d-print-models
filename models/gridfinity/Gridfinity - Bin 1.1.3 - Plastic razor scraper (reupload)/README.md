@@ -3,7 +3,7 @@ type: reupload
 category: tools/organizers
 ---
 
-# Gridfinity - Bin 1.1.3 - Plastic Razor Scraper (reupload)
+# Gridfinity - Bin 1.1.3 - Plastic razor scraper (reupload)
 
 ![Preview](preview.jpg)
 

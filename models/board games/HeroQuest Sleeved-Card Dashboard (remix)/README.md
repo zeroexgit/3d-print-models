@@ -13,10 +13,10 @@ category: toys/game-accessories
 - **Brief**: Sleeved-card holder for HeroQuest board game and other similar card games.
 - **Tags**: `dnd`, `cardholder`, `dashboard`, `heroquest`.
 <!--
-- **Published**: [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
+- **Published**: [Thingiverse](),
+  [Printables](),
+  [MakerWorld](),
+  [Cults3D]().
 -->
 
 <!------------------------------------------------------------------------------------------------->

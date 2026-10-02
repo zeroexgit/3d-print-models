@@ -3,7 +3,7 @@ type: original
 category: sports/airsoft
 ---
 
-# Airsoft Grenade Holder for Kimera Kamikaze XS
+# Airsoft grenade holder for Saigo Kamikaze XS
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
@@ -11,15 +11,10 @@ category: sports/airsoft
 ![Preview 3](preview_3.jpg)
 ![Preview 4](preview_4.jpg)
 
-- **Brief**: Kimera Kamikaze XS Airsoft Grenade Holder.
+- **Brief**: Saigo Kamikaze XS airsoft grenade holder.
 - **Tags**: `airsoft`, `grenade`, `molle`, `tactical`.
-<!--
 - **Published**:
-  [Thingiverse](link-goes-here),
-  [Printables](link-goes-here),
-  [MakerWorld](link-goes-here),
-  [Cults3D](link-goes-here).
--->
+  [Cults3D](https://cults3d.com/en/3d-model/game/airsoft-grenade-holder-for-saigo-kamikaze-xs).
 
 MOLLE and belt compatible. One-handed quick draw: the retention is built-in so
 you can retrieve the grenade without letting go of your replica. Strong
@@ -38,7 +33,8 @@ transport.
 
 ### Printing
 
-- Print the holder at 45 degrees, tipping backwards, with support.
+- Tested with PETG.
+- Print the holder at ~30 degrees tipping backwards, laying the model on the flat bottom surface on the bottom-back. Enable supports.
 - Print the bungee guide.
 - Choose backplate to print: one is for MOLLE attachment, the other is for belt attachment.
 
@@ -62,4 +58,4 @@ to discover more models and check for updates to this one.
 ## License
 <!------------------------------------------------------------------------------------------------->
 
-Single User License (No Redistribution, No Commercial Use).
+Single User License - Personal Use Only.

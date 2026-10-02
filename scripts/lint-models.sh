@@ -328,6 +328,89 @@ checkPreviewFileExists() {
     fi
 }
 
+checkStlNames() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local stl_path
+    local file_name
+    local part_number
+    local option_letter
+    local part_name
+    local version
+    local max_part_number=0
+    local invalid=0
+    local part
+    local -a stl_files=()
+    local -A seen_base_parts=()
+    local -A seen_option_parts=()
+    local -A part_has_options=()
+
+    while IFS= read -r -d '' stl_path; do
+        stl_files+=("${stl_path##*/}")
+    done < <(find "$model_dir" -maxdepth 1 -type f -name '*.stl' -print0)
+
+    ## NOP: single-file model naming is unrestricted for now.
+    ((${#stl_files[@]} > 1)) || return 0
+
+    for file_name in "${stl_files[@]}"; do
+        if [[ ! "$file_name" =~ ^([1-9][0-9]*)\.(([A-Z])\.)?\ (.+)\.stl$ ]]; then
+            reportIssue "INVALID STL NAME (expected '<number>. [A.] Name.stl')" \
+                "$model_dir/$file_name"
+            invalid=1
+            continue
+        fi
+
+        part_number="${BASH_REMATCH[1]}"
+        option_letter="${BASH_REMATCH[3]:-}"
+        part_name="${BASH_REMATCH[4]}"
+        if ((part_number > max_part_number)); then
+            max_part_number="$part_number"
+        fi
+
+        if [[ "$part_name" =~ ^(.+)\ \(v(.+)\)$ ]]; then
+            version="${BASH_REMATCH[2]}"
+            if [[ ! "$version" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+                reportIssue "INVALID STL VERSION (expected vMAJOR.MINOR.PATCH)" \
+                    "$model_dir/$file_name"
+                invalid=1
+            fi
+        elif [[ "$part_name" == *" (v"* ]]; then
+            reportIssue "INVALID STL VERSION (expected vMAJOR.MINOR.PATCH)" \
+                "$model_dir/$file_name"
+            invalid=1
+        fi
+
+        if [[ -n "$option_letter" ]]; then
+            if [[ -n "${seen_base_parts[$part_number]+x}" ]]; then
+                reportIssue "STL PART HAS BOTH BASE AND OPTIONS ($part_number)" "$readme"
+                invalid=1
+            fi
+            if [[ -n "${seen_option_parts[$part_number:$option_letter]+x}" ]]; then
+                reportIssue "DUPLICATE STL OPTION ($part_number.$option_letter)" "$readme"
+                invalid=1
+            fi
+            seen_option_parts["$part_number:$option_letter"]=1
+            part_has_options["$part_number"]=1
+        else
+            if [[ -n "${seen_base_parts[$part_number]+x}" ||
+                -n "${part_has_options[$part_number]+x}" ]]; then
+                reportIssue "DUPLICATE STL PART NUMBER ($part_number)" "$readme"
+                invalid=1
+            fi
+            seen_base_parts["$part_number"]=1
+        fi
+    done
+
+    for ((part = 1; part <= max_part_number; part += 1)); do
+        if [[ -z "${seen_base_parts[$part]+x}" && -z "${part_has_options[$part]+x}" ]]; then
+            reportIssue "MISSING STL PART NUMBER ($part)" "$readme"
+            invalid=1
+        fi
+    done
+
+    ((invalid == 0))
+}
+
 checkAssetsDirectoryIsIgnored() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
@@ -457,6 +540,7 @@ runModelChecks() {
         checkLicenseHeadingExists
         checkInstructionsFormat
         checkPreviewFileExists
+        checkStlNames
         checkAssetsDirectoryIsIgnored
         checkNoPlaceholderLinks
         checkNoTodoMarkers

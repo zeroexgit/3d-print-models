@@ -3,7 +3,7 @@ type: remix
 category: toys/game-accessories
 ---
 
-# HeroQuest Sleeved-Card Dashboard (remix)
+# HeroQuest sleeved-card dashboard (remix)
 
 ![Preview](preview.jpg)
 ![Preview_1](preview_1.jpg)
@@ -12,12 +12,13 @@ category: toys/game-accessories
 
 - **Brief**: Sleeved-card holder for HeroQuest board game and other similar card games.
 - **Tags**: `dnd`, `cardholder`, `dashboard`, `heroquest`.
-<!--
-- **Published**: [Thingiverse](),
-  [Printables](),
-  [MakerWorld](),
-  [Cults3D]().
--->
+- **Published**:
+  [Thingiverse](https://www.thingiverse.com/thing:7417405),
+  [Printables](https://www.printables.com/model/1863211-heroquest-sleeved-card-dashboard-remix),
+  [MakerWorld](https://makerworld.com/en/models/3385067-heroquest-sleeved-card-dashboard-remix),
+  [Cults3D](https://cults3d.com/en/3d-model/game/heroquest-sleeved-card-dashboard-remix-zeroex-3).
+
+Can hold sleeved cards for HeroQuest and similar board games. The holders themselves are small enough to be stowed easily in most game boxes.
 
 <!------------------------------------------------------------------------------------------------->
 ## Attribution

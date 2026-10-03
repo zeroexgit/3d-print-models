@@ -19,6 +19,10 @@ requireCommand dirname
 requireCommand find
 requireCommand grep
 requireCommand git
+requireCommand chmod
+requireCommand mktemp
+requireCommand mv
+requireCommand trash
 
 ##==================================================================================================
 ##	GLOBALS
@@ -31,8 +35,17 @@ declare -r REPOSITORY_DIR
 MODELS_DIR="$(cd -- "$SCRIPT_DIR/../models" && pwd -P)"
 declare -r MODELS_DIR
 declare -r CATEGORIES_FILE="$MODELS_DIR/_model-templates/categories.md"
+declare -r LICENSES_FILE="$MODELS_DIR/_model-templates/licenses.md"
+declare -r REMIX_NOTICE_TEMPLATE="$MODELS_DIR/_model-templates/remix-notice.md"
+declare -r MORE_TEMPLATE="$MODELS_DIR/_model-templates/more-url.md"
 declare -r DECORATOR='<!------------------------------------------------------------------------------------------------->'
 declare -A VALID_CATEGORIES=()
+declare -A VALID_LICENSE_STATEMENTS=()
+declare -A VALID_LICENSE_TYPES=()
+CATEGORIES_AVAILABLE=true
+LICENSES_AVAILABLE=true
+REMIX_NOTICE_AVAILABLE=true
+MORE_TEMPLATE_AVAILABLE=true
 ERRORS=0
 
 ##==================================================================================================
@@ -88,8 +101,9 @@ readmeHasDecoratedHeading() {
 ## Load valid "family/category" pairs from categories.md.
 loadCategories() {
     if [[ ! -f "$CATEGORIES_FILE" ]]; then
-        printf 'MISSING categories.md: %s\n' "$CATEGORIES_FILE"
-        return 1
+        printf 'WARNING: category validation skipped; file not found: %s\n' "$CATEGORIES_FILE"
+        CATEGORIES_AVAILABLE=false
+        return 0
     fi
 
     local current_family=""
@@ -101,6 +115,73 @@ loadCategories() {
             VALID_CATEGORIES["$current_family/${BASH_REMATCH[1]}"]=1
         fi
     done <"$CATEGORIES_FILE"
+}
+
+## Load valid license statements from licenses.md.
+loadLicenseStatements() {
+    if [[ ! -f "$LICENSES_FILE" ]]; then
+        printf 'WARNING: license validation skipped; file not found: %s\n' "$LICENSES_FILE"
+        LICENSES_AVAILABLE=false
+        return 0
+    fi
+
+    local line
+    local current_license_statement=""
+    local license_type
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^-[[:space:]](.+)$ ]]; then
+            current_license_statement="${BASH_REMATCH[1]}"
+            current_license_statement="${current_license_statement%"${current_license_statement##*[![:space:]]}"}"
+            VALID_LICENSE_STATEMENTS["$current_license_statement"]=1
+        elif [[ -n "$current_license_statement" && "$line" =~ ^[[:space:]]+-[[:space:]](.+)$ ]]; then
+            license_type="${BASH_REMATCH[1]}"
+            license_type="${license_type%"${license_type##*[![:space:]]}"}"
+            VALID_LICENSE_TYPES["$current_license_statement|$license_type"]=1
+        else
+            current_license_statement=""
+        fi
+    done < <(stripMarkdownComments "$LICENSES_FILE")
+}
+
+checkSupportingTemplateFiles() {
+    if [[ ! -f "$REMIX_NOTICE_TEMPLATE" ]]; then
+        printf 'WARNING: remix notice validation skipped; file not found: %s\n' \
+            "$REMIX_NOTICE_TEMPLATE"
+        REMIX_NOTICE_AVAILABLE=false
+    fi
+    if [[ ! -f "$MORE_TEMPLATE" ]]; then
+        printf 'WARNING: required more-text validation skipped; file not found: %s\n' \
+            "$MORE_TEMPLATE"
+        MORE_TEMPLATE_AVAILABLE=false
+    fi
+}
+
+## Remove HTML comments while preserving text outside comment blocks.
+stripMarkdownComments() {
+    local markdown_file="$1"
+    awk '
+    {
+      line = ""
+      position = 1
+      while (position <= length($0)) {
+        if (in_comment) {
+          if (substr($0, position, 3) == "-->") {
+            in_comment = 0
+            position += 3
+          } else {
+            position += 1
+          }
+        } else if (substr($0, position, 4) == "<!--") {
+          in_comment = 1
+          position += 4
+        } else {
+          line = line substr($0, position, 1)
+          position += 1
+        }
+      }
+      print line
+    }
+  ' "$markdown_file"
 }
 
 checkInstructions() {
@@ -219,6 +300,17 @@ checkFolderTitleMatchesReadme() {
     fi
 }
 
+checkFolderNameHasNoTrailingSpaces() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local folder_name
+    folder_name="$(basename "$model_dir")"
+    if [[ "$folder_name" == *' ' ]]; then
+        reportIssue "TRAILING SPACE IN MODEL FOLDER NAME" "$readme"
+        return 1
+    fi
+}
+
 checkTypeMatchesTitle() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
@@ -249,14 +341,119 @@ checkCategoryIsValid() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
     local category
+    [[ "$CATEGORIES_AVAILABLE" == true ]] || return 0
     category="$(getFrontmatterField "$readme" "category")"
     if [[ -z "$category" ]]; then
-        reportIssue "MISSING CATEGORY" "$readme"
+        reportIssue "MISSING CATEGORY; add an accepted family/category from $CATEGORIES_FILE" \
+            "$readme"
         return 1
     elif [[ -z "${VALID_CATEGORIES[$category]+x}" ]]; then
-        reportIssue "INVALID CATEGORY '$category'" "$readme"
+        reportIssue "INVALID CATEGORY '$category'; accepted values are listed in $CATEGORIES_FILE" \
+            "$readme"
         return 1
     fi
+}
+
+checkPreviewReferenceCountMatchesFiles() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local preview_file
+    local preview_file_count=0
+    local preview_reference_count
+
+    for preview_file in "$model_dir"/preview*.jpg "$model_dir"/preview*.jpeg \
+        "$model_dir"/preview*.png "$model_dir"/preview*.webp; do
+        [[ -f "$preview_file" ]] || continue
+        ((preview_file_count += 1))
+    done
+
+    preview_reference_count="$(awk '
+        /^!\[Preview[^]]*\]\(preview[^)]*\)/ { count += 1 }
+        END { print count + 0 }
+    ' "$readme")"
+
+    if ((preview_reference_count != preview_file_count)); then
+        printf 'PREVIEW COUNT MISMATCH: %s\n  References: %s\n  Files:      %s\n' \
+            "$readme" "$preview_reference_count" "$preview_file_count"
+        return 1
+    fi
+}
+
+checkPreviewReferencesAreContiguous() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    if ! awk '
+        /^!\[Preview[^]]*\]\(preview[^)]*\)/ {
+            if (previous_preview_line && NR != previous_preview_line + 1) invalid = 1
+            previous_preview_line = NR
+        }
+        END { exit invalid }
+    ' "$readme"; then
+        reportIssue "PREVIEW REFERENCES MUST BE CONTIGUOUS" "$readme"
+        return 1
+    fi
+}
+
+removeBlankLinesBetweenPreviewReferences() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local temporary_file
+
+    if ! awk '
+        /^!\[Preview[^]]*\]\(preview[^)]*\)/ {
+            if (previous_preview && blank_between) needs_fix = 1
+            previous_preview = 1
+            blank_between = 0
+            next
+        }
+        /^[[:space:]]*$/ {
+            if (previous_preview) blank_between = 1
+            next
+        }
+        { previous_preview = 0; blank_between = 0 }
+        END { exit !needs_fix }
+    ' "$readme"; then
+        return 0
+    fi
+
+    temporary_file="$(mktemp --tmpdir="${readme%/*}" ".${readme##*/}.XXXXXX")"
+    if ! awk '
+        /^!\[Preview[^]]*\]\(preview[^)]*\)/ {
+            if (!(previous_preview && pending_blanks)) printf "%s", pending
+            pending = ""
+            pending_blanks = 0
+            print
+            previous_preview = 1
+            next
+        }
+        /^[[:space:]]*$/ {
+            pending = pending $0 "\n"
+            pending_blanks = 1
+            next
+        }
+        {
+            printf "%s", pending
+            pending = ""
+            pending_blanks = 0
+            print
+            previous_preview = 0
+        }
+        END { printf "%s", pending }
+    ' "$readme" >"$temporary_file"; then
+        trash "$temporary_file"
+        reportIssue "COULD NOT NORMALIZE PREVIEW SPACING" "$readme"
+        return 1
+    fi
+
+    if ! chmod --reference="$readme" "$temporary_file" ||
+        ! mv -- "$temporary_file" "$readme"; then
+        if [[ -e "$temporary_file" ]]; then
+            trash "$temporary_file"
+        fi
+        reportIssue "COULD NOT NORMALIZE PREVIEW SPACING" "$readme"
+        return 1
+    fi
+    printf 'REMOVED BLANK LINES BETWEEN PREVIEW REFERENCES: %s\n' "$readme"
 }
 
 checkCanonicalPreviewReference() {
@@ -505,6 +702,159 @@ checkAttributionMatchesType() {
     esac
 }
 
+##--------------------------------------------------------------------------------------------------
+
+checkOriginalDescriptionIsQuoted() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local type
+    type="$(getFrontmatterField "$readme" "type")"
+    [[ "$type" == "original" ]] && return 0
+
+    if ! awk '
+        /^### Original Description$/ { in_description = 1; found = 1; next }
+        in_description && /^<!-+>$/ { in_description = 0; next }
+        in_description && /^#+[[:space:]]/ { in_description = 0 }
+        in_description && /^>/ {
+            if (quote_block_ended) invalid = 1
+            quote_started = 1
+            next
+        }
+        in_description && /^[[:space:]]*$/ {
+            if (quote_started) quote_block_ended = 1
+            next
+        }
+        in_description { invalid = 1 }
+        END { exit !(found && quote_started && !invalid) }
+    ' "$readme"; then
+        reportIssue "ORIGINAL DESCRIPTION MUST BE QUOTED WITH >" "$readme"
+        return 1
+    fi
+}
+
+##--------------------------------------------------------------------------------------------------
+
+##--------------------------------------------------------------------------------------------------
+
+checkRemixAttributionPhrase() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local type
+    type="$(getFrontmatterField "$readme" "type")"
+    [[ "$type" == "remix" ]] || return 0
+    [[ "$REMIX_NOTICE_AVAILABLE" == true ]] || return 0
+
+    if ! awk -v template_file="$REMIX_NOTICE_TEMPLATE" '
+        function paragraphMatchesNotice(paragraph, remaining, author_end, url_length) {
+            gsub(/[[:space:]]+/, " ", paragraph)
+            sub(/^ /, "", paragraph)
+            sub(/ $/, "", paragraph)
+            if (!template_valid || substr(paragraph, 1, length(prefix)) != prefix) return 0
+            remaining = substr(paragraph, length(prefix) + 1)
+            author_end = index(remaining, middle)
+            if (author_end < 2 || substr(remaining, 1, author_end - 1) ~ /[<>*]/) return 0
+            remaining = substr(remaining, author_end + length(middle))
+            if (!match(remaining, /^<https?:\/\/[^ >]+>/)) return 0
+            url_length = RLENGTH
+            remaining = substr(remaining, url_length + 1)
+            return remaining == suffix
+        }
+        BEGIN {
+            while ((getline line < template_file) > 0) {
+                template = template (template == "" ? "" : " ") line
+            }
+            close(template_file)
+            gsub(/[[:space:]]+/, " ", template)
+            author_position = index(template, "<author>")
+            url_position = index(template, "<<url-goes-here.com>>")
+            if (author_position && url_position > author_position) {
+                prefix = substr(template, 1, author_position - 1)
+                middle_start = author_position + length("<author>")
+                middle = substr(template, middle_start, url_position - middle_start)
+                suffix = substr(template, url_position + length("<<url-goes-here.com>>"))
+                template_valid = 1
+            }
+        }
+        /^[[:space:]]*$/ {
+            if (paragraphMatchesNotice(paragraph)) found = 1
+            paragraph = ""
+            next
+        }
+        {
+            paragraph = paragraph (paragraph == "" ? "" : " ") $0
+        }
+        END {
+            if (paragraphMatchesNotice(paragraph)) found = 1
+            exit !found
+        }
+    ' "$readme"; then
+        reportIssue "REMIX NOTICE DOES NOT MATCH TEMPLATE; use the format in $REMIX_NOTICE_TEMPLATE" \
+            "$readme"
+        return 1
+    fi
+}
+
+##--------------------------------------------------------------------------------------------------
+
+checkMoreTextExists() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local model_type
+    [[ "$MORE_TEMPLATE_AVAILABLE" == true ]] || return 0
+    model_type="$(getFrontmatterField "$readme" "type")"
+
+    if ! awk -v template_file="$MORE_TEMPLATE" -v model_type="$model_type" '
+        function checkParagraph() {
+            gsub(/[[:space:]]+/, " ", paragraph)
+            sub(/^ /, "", paragraph)
+            sub(/ $/, "", paragraph)
+            if (index(paragraph, required_text)) {
+                found = 1
+                if (!differences_started) found_before_differences = 1
+            }
+            paragraph = ""
+        }
+        BEGIN {
+            while ((getline line < template_file) > 0) {
+                required_text = required_text (required_text == "" ? "" : " ") line
+            }
+            close(template_file)
+            gsub(/[[:space:]]+/, " ", required_text)
+        }
+        /^### Differences of the remix compared to the original$/ {
+            checkParagraph()
+            differences_started = 1
+            found_differences = 1
+            next
+        }
+        /^[[:space:]]*$/ {
+            checkParagraph()
+            next
+        }
+        {
+            paragraph = paragraph (paragraph == "" ? "" : " ") $0
+        }
+        END {
+            checkParagraph()
+            if (model_type == "remix") {
+                exit !(required_text != "" && found && found_differences &&
+                    found_before_differences)
+            }
+            exit !(required_text != "" && found)
+        }
+    ' "$readme"; then
+        if [[ "$model_type" == "remix" ]]; then
+            reportIssue "REQUIRED MORE TEXT MISSING OR OUT OF ORDER; use $MORE_TEMPLATE and place it before the remix differences heading" \
+                "$readme"
+        else
+            reportIssue "REQUIRED MORE TEXT MISSING; include the text in $MORE_TEMPLATE" "$readme"
+        fi
+        return 1
+    fi
+}
+
+##--------------------------------------------------------------------------------------------------
+
 checkSourceUrlExists() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
@@ -525,15 +875,49 @@ checkLicenseStatementExists() {
     fi
 }
 
+checkLicenseStatementIsApproved() {
+    local model_dir="$1"
+    local readme="$model_dir/README.md"
+    local readme_line
+    local model_type
+    local license_found=false
+    local invalid_license_type=false
+    [[ "$LICENSES_AVAILABLE" == true ]] || return 0
+    model_type="$(getFrontmatterField "$readme" "type")"
+
+    while IFS= read -r readme_line; do
+        if [[ -n "$readme_line" && -n "${VALID_LICENSE_STATEMENTS[$readme_line]+x}" ]]; then
+            license_found=true
+            if [[ -z "${VALID_LICENSE_TYPES["$readme_line|$model_type"]+x}" ]]; then
+                invalid_license_type=true
+            fi
+        fi
+    done <"$readme"
+
+    if [[ "$invalid_license_type" == true ]]; then
+        reportIssue "LICENSE NOT ALLOWED FOR MODEL TYPE '$model_type'; see accepted statements and types in $LICENSES_FILE" \
+            "$readme"
+        return 1
+    fi
+    [[ "$license_found" == true ]] && return 0
+    reportIssue "LICENSE STATEMENT IS NOT AN APPROVED EXACT MATCH; copy an accepted statement for '$model_type' from $LICENSES_FILE" \
+        "$readme"
+    return 1
+}
+
 runModelChecks() {
     local model_dir="$1"
     local check_function
     local -a checks=(
         checkTitleExists
         checkFolderTitleMatchesReadme
+        checkFolderNameHasNoTrailingSpaces
         checkTypeMatchesTitle
         checkCategoryIsValid
         checkCanonicalPreviewReference
+        checkPreviewReferenceCountMatchesFiles
+        removeBlankLinesBetweenPreviewReferences
+        checkPreviewReferencesAreContiguous
         checkBriefExists
         checkTagsExist
         checkAttributionHeadingExists
@@ -545,8 +929,12 @@ runModelChecks() {
         checkNoPlaceholderLinks
         checkNoTodoMarkers
         checkAttributionMatchesType
+        checkOriginalDescriptionIsQuoted
+        checkRemixAttributionPhrase
+        checkMoreTextExists
         checkSourceUrlExists
         checkLicenseStatementExists
+        checkLicenseStatementIsApproved
     )
 
     for check_function in "${checks[@]}"; do
@@ -573,6 +961,10 @@ main() {
     if ! loadCategories; then
         ((ERRORS += 1))
     fi
+    if ! loadLicenseStatements; then
+        ((ERRORS += 1))
+    fi
+    checkSupportingTemplateFiles
 
     while IFS= read -r -d '' readme; do
         lintModelFolder "$readme"

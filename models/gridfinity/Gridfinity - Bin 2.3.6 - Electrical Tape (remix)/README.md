@@ -6,6 +6,8 @@ category: tools/organizers
 # Gridfinity - Bin 2.3.6 - Electrical Tape (remix)
 
 ![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Gridfinity container for 6 small electrical tape spools, sized exactly to 3x3x6 for stackability.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`.
@@ -23,8 +25,7 @@ Gridfinity container for electrical tapes with room for 6 small spools.
 
 This model is a remix of a 3D print model by **LutraVulgaris** obtained from <https://www.printables.com/model/421237-electrical-tape-holder-gridfinity>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
-more models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
@@ -44,5 +45,4 @@ more models and check for updates to this one.
 ## License
 <!------------------------------------------------------------------------------------------------->
 
-This model is marked as **Public Domain** in the provided metadata. Verify exact upstream license
-wording before publishing outside this repo.
+This model is licensed under [**CC0 1.0**](https://creativecommons.org/publicdomain/zero/1.0/).

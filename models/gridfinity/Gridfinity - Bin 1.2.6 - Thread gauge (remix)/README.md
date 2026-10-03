@@ -27,13 +27,12 @@ adapt the holder to this setup while keeping it easy to stack and secure.
 
 This model is a remix of a 3D print model by **Mikołaj** obtained from <https://www.printables.com/model/1143237-gridfinity-bin-for-thread-gauge>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more
-models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
 - Resized the bin to 1x2x6.
-- Added stacking lips.
+- Added notches to stacking lips.
 - Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description

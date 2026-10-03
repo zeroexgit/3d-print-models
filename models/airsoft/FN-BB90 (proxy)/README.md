@@ -33,6 +33,9 @@ No model files are included here (no `.stl` / `.3mf` uploads) when the license d
 > When the gun is not in use, always remove the magazine to keep the BB release from wearing out. Use with more caution when no magazine is inserted, as the frame at the ammo inlet is thin and fragile.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

@@ -25,8 +25,7 @@ Gridfinity bin sized 2x5x6 for holding an Aukey SK-A2 Bluetooth speaker.
 
 This is an original 3D print model.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
-more models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

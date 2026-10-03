@@ -23,6 +23,9 @@ I've reuploaded this model only to this repository and its website catalog to ma
 > The Solder Scroll makes soldering more ergonomic by allowing you to just scroll on the pen-shaped tool to add solder. By rotating the knob, the tool can be adjusted to accommodate different diameters of soldering wire (0.3–1.5mm). A length of soldering wire is stored on the back and can easily be refilled.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

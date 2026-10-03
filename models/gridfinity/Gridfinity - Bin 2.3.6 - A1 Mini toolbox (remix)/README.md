@@ -6,6 +6,8 @@ category: tools/organizers
 # Gridfinity - Bin 2.3.6 - A1 Mini toolbox (remix)
 
 ![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Gridfinity 4x3x6U A1/A1 Mini toolbox remix with a 6x2 mm press-fit magnetic base,
   simplified stacking lip, and bigger label.
@@ -24,8 +26,7 @@ Gridfinity bin for 4x3x6U A1/A1 Mini accesories.
 
 This model is a remix of a 3D print model by **Brice Hoogenboom** obtained from <https://www.printables.com/model/699737-a1a1-mini-toolbox-gridfinity>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
-more models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 

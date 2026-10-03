@@ -27,6 +27,9 @@ No model files are included here (no `.stl` / `.3mf` uploads) when the license d
 > Caution, remove the piece from the print bed when the bed is cold.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

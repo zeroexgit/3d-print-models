@@ -7,6 +7,8 @@ category: tools/organizers
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: Compact packable winder for 4mm paracord, available in 4 size variants.
 - **Tags**: `paracord`, `winder`, `organizer`, `hiking`, `camping`, `edc`.
@@ -41,6 +43,9 @@ I've reuploaded this model only to this repository and its website catalog to ma
 > - 0.2mm layer, 0.4mm nozzle, 2–3 perimeters, 15% infill (or less).
 >
 > **Tip:** You can organize 3–4 segments of paracord on the same winder as long as their sum does not exceed the winder's capacity.
+
+<!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

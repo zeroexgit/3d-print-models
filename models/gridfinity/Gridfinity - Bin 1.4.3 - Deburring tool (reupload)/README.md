@@ -26,6 +26,9 @@ redistribution/resharing (including non-commercial constraints where applicable)
 > Gridfinity deburring tool holder.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

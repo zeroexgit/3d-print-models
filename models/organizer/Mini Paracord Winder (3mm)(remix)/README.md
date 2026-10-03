@@ -7,6 +7,8 @@ category: tools/organizers
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: Compact packable winder for 3mm paracord, remixed from the 4mm mini variant.
 - **Tags**: `paracord`, `winder`, `organizer`, `hiking`, `camping`, `edc`, `3mm`.

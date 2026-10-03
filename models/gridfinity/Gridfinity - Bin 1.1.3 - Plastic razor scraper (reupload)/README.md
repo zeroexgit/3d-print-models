@@ -26,6 +26,9 @@ redistribution/resharing (including non-commercial constraints where applicable)
 > Plastic Razor Scraper Holder, Gridfinity 3x1, with magnets.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

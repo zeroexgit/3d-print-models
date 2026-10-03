@@ -25,13 +25,12 @@ Stackable Gridfinity tray for credit cards, modified to fit more cards (25+).
 
 This model is a remix of a 3D print model by **foundUnderground** obtained from <https://www.printables.com/model/1052592-gridfinity-credit-card-tray>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
-more models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
 - Resized to 2x3x6.
-- Added stacking lips.
+- Added notches to stacking lips.
 - Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description
@@ -47,4 +46,4 @@ more models and check for updates to this one.
 ## License
 <!------------------------------------------------------------------------------------------------->
 
-This model is licensed under [**CC BY-NC-SA**](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+This model is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).

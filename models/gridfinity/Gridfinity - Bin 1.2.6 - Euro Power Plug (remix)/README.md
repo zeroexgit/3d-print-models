@@ -7,6 +7,8 @@ category: tools/organizers
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: Gridfinity euro USB power-plug bin resized to 1x2x6, with lip notches and press-fit
   holes for 6x2 mm magnets.
@@ -25,8 +27,7 @@ Gridfinity bin remix for euro USB power plugs.
 
 This model is a remix of a 3D print model by **3dreamer** obtained from <https://www.printables.com/model/1375287-gridfinity-power-plug-holder-eu>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover
-more models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 

@@ -30,6 +30,9 @@ I've reuploaded this model only to this repository and its website catalog to ma
 > It's a very tight friction fit and will not fall out easily.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 

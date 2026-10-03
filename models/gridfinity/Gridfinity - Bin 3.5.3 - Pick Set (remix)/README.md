@@ -27,13 +27,12 @@ and replaces the original magnet holes with holes sized for 6x2 mm press-fit mag
 
 This model is a remix of a 3D print model by **Fries** obtained from <https://www.printables.com/model/685683-gridfinity-pick-set-holder>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more
-models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
 - Resized the bin to 3x5x3.
-- Added stacking lips.
+- Added notches to stacking lips.
 - Replaced the original magnet holes with press-fit holes for 6x2 mm magnets.
 
 ### Original Description

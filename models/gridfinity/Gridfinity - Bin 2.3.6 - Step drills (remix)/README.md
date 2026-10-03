@@ -26,12 +26,11 @@ to make the bin easier to integrate with a stackable, magnetic storage layout.
 
 This model is a remix of a 3D print model by **layershifter** obtained from <https://www.printables.com/model/1050074-step-drills-grifinity-updated>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more
-models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 
-- Added stacking lips.
+- Added notches to stacking lips.
 - Added press-fit holes for 6x2 mm magnets.
 
 ### Original Description

@@ -26,7 +26,10 @@ I've reuploaded this model only to this repository and its website catalog to ma
 > Very lightweight, uses only about 2g of TPU per print. You can carry multiple caps with you in different colors, and mark batteries which need charging after you use them.
 
 <!------------------------------------------------------------------------------------------------->
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
+
+<!------------------------------------------------------------------------------------------------->
 ## License
 <!------------------------------------------------------------------------------------------------->
 
-This model is licensed under [**CC0 1.0 Public Domain**](https://creativecommons.org/publicdomain/zero/1.0/).
+This model is licensed under [**CC0 1.0**](https://creativecommons.org/publicdomain/zero/1.0/).

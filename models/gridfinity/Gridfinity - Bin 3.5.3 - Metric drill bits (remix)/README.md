@@ -28,8 +28,7 @@ the original design, helping the holder stay in place on a compatible base.
 This model is a remix of a 3D print model by **alan ti** obtained from
 <https://www.printables.com/model/1061778-gridfinity-metric-drill-bit-holder>.
 
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more
-models and check for updates to this one.
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Differences of the remix compared to the original
 

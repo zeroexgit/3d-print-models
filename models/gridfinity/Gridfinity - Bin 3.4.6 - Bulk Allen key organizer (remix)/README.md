@@ -5,7 +5,9 @@ category: tools/organizers
 
 # Gridfinity - Bin 3.4.6 - Bulk Allen key organizer (remix)
 
-![Preview](preview.jpg) ![Preview 1](preview_1.jpg) ![Preview 2](preview_2.jpg)
+![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Gridfinity organizer for bulk Allen keys.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`
@@ -20,9 +22,7 @@ Gridfinity organizer for bulk Allen keys, ideal to store all those keys you neve
 The bin has enough size to still make a mess in the corners if your heart desires so.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## Attribution
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is a remix of a 3D print model by **MT** obtained from <https://www.printables.com/model/454838-gridfinity-allen-key-bulk-storage-medium-size>.
@@ -41,9 +41,7 @@ Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-mode
 > stackable, holds a lot of allen wrench in the slots, and there are also overflow area to keep those odd sized ones in the box.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## License
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).

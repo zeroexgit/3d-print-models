@@ -358,38 +358,121 @@ checkPreviewReferenceCountMatchesFiles() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
     local preview_file
+    local preview_file_name
+    local reference_path
+    local reference_alt_text
+    local expected_alt_text
+    local issue_message
     local preview_file_count=0
-    local preview_reference_count
+    local preview_reference_count=0
+    local reference_index
+    local expected_support_number
+    local invalid=0
+    local -a preview_file_names=()
+    local -a preview_reference_paths=()
+    local -A seen_preview_files=()
+    local -A seen_preview_references=()
 
     for preview_file in "$model_dir"/preview*.jpg "$model_dir"/preview*.jpeg \
         "$model_dir"/preview*.png "$model_dir"/preview*.webp; do
         [[ -f "$preview_file" ]] || continue
+        preview_file_name="${preview_file##*/}"
+        preview_file_names+=("$preview_file_name")
+        seen_preview_files["$preview_file_name"]=1
         ((preview_file_count += 1))
     done
 
-    preview_reference_count="$(awk '
-        /^!\[Preview[^]]*\]\(preview[^)]*\)/ { count += 1 }
-        END { print count + 0 }
-    ' "$readme")"
+    while IFS=$'\t' read -r reference_alt_text reference_path; do
+        preview_reference_paths+=("$reference_path")
+        ((preview_reference_count += 1))
+        expected_alt_text='Preview'
+        if [[ "$reference_path" =~ ^preview_([1-9][0-9]*)\. ]]; then
+            expected_alt_text="Preview ${BASH_REMATCH[1]}"
+        fi
+        if [[ "$reference_alt_text" != "$expected_alt_text" ]]; then
+            reportIssue \
+                "PREVIEW LABEL MISMATCH ($reference_path requires alt text '$expected_alt_text')" \
+                "$readme"
+            invalid=1
+        fi
+        if [[ -n "${seen_preview_references["$reference_path"]+x}" ]]; then
+            reportIssue "DUPLICATE PREVIEW REFERENCE ($reference_path)" "$readme"
+            invalid=1
+        fi
+        seen_preview_references["$reference_path"]=1
+    done < <(awk '
+        {
+            line = $0
+            while (match(line, /!\[Preview[^]]*\]\(preview[^)]*\)/)) {
+                image_reference_start = RSTART
+                image_reference = substr(line, RSTART, RLENGTH)
+                image_reference_length = RLENGTH
+                alt_text = image_reference
+                sub(/^!\[/, "", alt_text)
+                sub(/\].*$/, "", alt_text)
+                preview_path = image_reference
+                sub(/^.*\]\(/, "", preview_path)
+                sub(/\)$/, "", preview_path)
+                print alt_text "\t" preview_path
+                line = substr(line, image_reference_start + image_reference_length)
+            }
+        }
+    ' "$readme")
 
     if ((preview_reference_count != preview_file_count)); then
-        printf 'PREVIEW COUNT MISMATCH: %s\n  References: %s\n  Files:      %s\n' \
-            "$readme" "$preview_reference_count" "$preview_file_count"
-        return 1
+        printf -v issue_message \
+            'PREVIEW COUNT MISMATCH (README: %s refs; folder: %s preview images)' \
+            "$preview_reference_count" "$preview_file_count"
+        reportIssue "$issue_message" "$readme"
+        invalid=1
     fi
+
+    for preview_file_name in "${preview_file_names[@]}"; do
+        if [[ -z "${seen_preview_references["$preview_file_name"]+x}" ]]; then
+            reportIssue "PREVIEW FILE NOT REFERENCED BY README ($preview_file_name)" \
+                "$model_dir/$preview_file_name"
+            invalid=1
+        fi
+    done
+
+    for reference_path in "${!seen_preview_references[@]}"; do
+        if [[ -z "${seen_preview_files["$reference_path"]+x}" ]]; then
+            reportIssue "PREVIEW REFERENCE HAS NO MATCHING FILE ($reference_path)" "$readme"
+            invalid=1
+        fi
+    done
+
+    for ((reference_index = 1; reference_index < preview_reference_count; reference_index += 1)); do
+        expected_support_number="$reference_index"
+        reference_path="${preview_reference_paths[$reference_index]}"
+        if [[ "$reference_path" != "preview_${expected_support_number}."* ]]; then
+            printf -v issue_message \
+                'PREVIEW REFERENCES OUT OF ORDER (expected preview_%s.<extension>; found %s)' \
+                "$expected_support_number" "$reference_path"
+            reportIssue "$issue_message" "$readme"
+            invalid=1
+        fi
+    done
+
+    ((invalid == 0))
 }
 
 checkPreviewReferencesAreContiguous() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
     if ! awk '
-        /^!\[Preview[^]]*\]\(preview[^)]*\)/ {
+        {
+            preview_reference_count = gsub(/!\[Preview[^]]*\]\(preview[^)]*\)/, "&")
+            if (preview_reference_count > 1) invalid = 1
+        }
+        {
+            if (!match($0, /!\[Preview[^]]*\]\(preview[^)]*\)/)) next
             if (previous_preview_line && NR != previous_preview_line + 1) invalid = 1
             previous_preview_line = NR
         }
         END { exit invalid }
     ' "$readme"; then
-        reportIssue "PREVIEW REFERENCES MUST BE CONTIGUOUS" "$readme"
+        reportIssue "PREVIEW REFERENCES MUST BE ONE PER LINE AND CONTIGUOUS" "$readme"
         return 1
     fi
 }
@@ -459,8 +542,19 @@ removeBlankLinesBetweenPreviewReferences() {
 checkCanonicalPreviewReference() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
-    if ! readmeHasPattern "$readme" '^!\[Preview\]\(preview\.jpg\)(\{[^}]+\})?$'; then
-        reportIssue "MISSING CANONICAL PREVIEW REFERENCE" "$readme"
+    local first_preview_reference
+
+    first_preview_reference="$(awk '
+        {
+            if (!match($0, /!\[Preview[^]]*\]\(preview[^)]*\)/)) next
+            print substr($0, RSTART, RLENGTH)
+            exit
+        }
+    ' "$readme")"
+    if [[ ! "$first_preview_reference" =~ ^!\[Preview\]\(preview\.(jpg|jpeg|png|webp)\)(\{[^}]+\})?$ ]]; then
+        reportIssue \
+            "INVALID FIRST PREVIEW REFERENCE (expected ![Preview](preview.<extension>))" \
+            "$readme"
         return 1
     fi
 }
@@ -516,13 +610,66 @@ checkInstructionsFormat() {
     fi
 }
 
-checkPreviewFileExists() {
+checkPreviewFileNames() {
     local model_dir="$1"
     local readme="$model_dir/README.md"
-    if [[ ! -f "$model_dir/preview.jpg" ]]; then
-        reportIssue "MISSING PREVIEW FILE" "$readme"
-        return 1
+    local preview_file
+    local file_name
+    local preview_number
+    local support_preview_count=0
+    local canonical_preview_count=0
+    local invalid=0
+    local issue_message
+    local -A seen_support_preview_numbers=()
+
+    for preview_file in "$model_dir"/preview*; do
+        [[ -f "$preview_file" ]] || continue
+        file_name="${preview_file##*/}"
+
+        if [[ "$file_name" =~ ^preview\.(jpg|jpeg|png|webp)$ ]]; then
+            ((canonical_preview_count += 1))
+        elif [[ "$file_name" =~ ^preview_([1-9][0-9]*)\.(jpg|jpeg|png|webp)$ ]]; then
+            preview_number="${BASH_REMATCH[1]}"
+            if [[ -n "${seen_support_preview_numbers["$preview_number"]+x}" ]]; then
+                printf -v issue_message \
+                    'DUPLICATE SUPPORT PREVIEW NUMBER (%s; already used by %s)' \
+                    "$preview_number" "${seen_support_preview_numbers["$preview_number"]}"
+                reportIssue "$issue_message" "$preview_file"
+                invalid=1
+            else
+                seen_support_preview_numbers["$preview_number"]="$file_name"
+                ((support_preview_count += 1))
+            fi
+        else
+            printf -v issue_message \
+                'INVALID PREVIEW FILE NAME (%s; use preview.<ext> or preview_<n>.<ext>; ext: jpg/jpeg/png/webp)' \
+                "$file_name"
+            reportIssue "$issue_message" "$preview_file"
+            invalid=1
+        fi
+    done
+
+    if ((canonical_preview_count == 0)); then
+        reportIssue \
+            "MISSING CANONICAL PREVIEW FILE (expected preview.jpg, preview.jpeg, preview.png, or preview.webp)" \
+            "$readme"
+        invalid=1
+    elif ((canonical_preview_count > 1)); then
+        reportIssue \
+            "MULTIPLE CANONICAL PREVIEW FILES (found $canonical_preview_count; keep one preview.<extension>)" \
+            "$readme"
+        invalid=1
     fi
+
+    for ((preview_number = 1; preview_number <= support_preview_count; preview_number += 1)); do
+        if [[ -z "${seen_support_preview_numbers["$preview_number"]+x}" ]]; then
+            reportIssue "PREVIEW NUMBERING GAP (missing preview_${preview_number}.<extension>)" \
+                "$readme"
+            invalid=1
+        fi
+    done
+
+    ((invalid == 0))
 }
 
 checkStlNames() {
@@ -530,17 +677,21 @@ checkStlNames() {
     local readme="$model_dir/README.md"
     local stl_path
     local file_name
+    local part_path
     local part_number
-    local option_letter
     local part_name
     local version
     local max_part_number=0
     local invalid=0
     local part
+    local segment
+    local prefix
+    local segment_index
     local -a stl_files=()
-    local -A seen_base_parts=()
-    local -A seen_option_parts=()
-    local -A part_has_options=()
+    local -a part_segments=()
+    local -A seen_part_paths=()
+    local -A seen_option_slots=()
+    local -A seen_top_level_parts=()
 
     while IFS= read -r -d '' stl_path; do
         stl_files+=("${stl_path##*/}")
@@ -550,19 +701,36 @@ checkStlNames() {
     ((${#stl_files[@]} > 1)) || return 0
 
     for file_name in "${stl_files[@]}"; do
-        if [[ ! "$file_name" =~ ^([1-9][0-9]*)\.(([A-Z])\.)?\ (.+)\.stl$ ]]; then
-            reportIssue "INVALID STL NAME (expected '<number>. [A.] Name.stl')" \
+        if [[ ! "$file_name" =~ ^([1-9][0-9]*(\.[1-9][0-9]*|\.[A-Z]|\.x)*)\.\ (.+)\.stl$ ]]; then
+            reportIssue "INVALID STL NAME (expected '<part path>. Name.stl')" \
                 "$model_dir/$file_name"
             invalid=1
             continue
         fi
 
-        part_number="${BASH_REMATCH[1]}"
-        option_letter="${BASH_REMATCH[3]:-}"
-        part_name="${BASH_REMATCH[4]}"
+        part_path="${BASH_REMATCH[1]}"
+        part_name="${BASH_REMATCH[3]}"
+        IFS='.' read -r -a part_segments <<<"$part_path"
+        part_number="${part_segments[0]}"
         if ((part_number > max_part_number)); then
             max_part_number="$part_number"
         fi
+        seen_top_level_parts["$part_number"]=1
+
+        if [[ -n "${seen_part_paths[$part_path]+x}" ]]; then
+            reportIssue "DUPLICATE STL PART PATH ($part_path)" "$model_dir/$file_name"
+            invalid=1
+        fi
+        seen_part_paths["$part_path"]=1
+
+        prefix="${part_segments[0]}"
+        for ((segment_index = 1; segment_index < ${#part_segments[@]}; segment_index += 1)); do
+            segment="${part_segments[$segment_index]}"
+            if [[ "$segment" =~ ^[A-Z]$ ]]; then
+                seen_option_slots["$prefix"]=1
+            fi
+            prefix+=".$segment"
+        done
 
         if [[ "$part_name" =~ ^(.+)\ \(v(.+)\)$ ]]; then
             version="${BASH_REMATCH[2]}"
@@ -576,31 +744,18 @@ checkStlNames() {
                 "$model_dir/$file_name"
             invalid=1
         fi
-
-        if [[ -n "$option_letter" ]]; then
-            if [[ -n "${seen_base_parts[$part_number]+x}" ]]; then
-                reportIssue "STL PART HAS BOTH BASE AND OPTIONS ($part_number)" "$readme"
-                invalid=1
-            fi
-            if [[ -n "${seen_option_parts[$part_number:$option_letter]+x}" ]]; then
-                reportIssue "DUPLICATE STL OPTION ($part_number.$option_letter)" "$readme"
-                invalid=1
-            fi
-            seen_option_parts["$part_number:$option_letter"]=1
-            part_has_options["$part_number"]=1
-        else
-            if [[ -n "${seen_base_parts[$part_number]+x}" ||
-                -n "${part_has_options[$part_number]+x}" ]]; then
-                reportIssue "DUPLICATE STL PART NUMBER ($part_number)" "$readme"
-                invalid=1
-            fi
-            seen_base_parts["$part_number"]=1
-        fi
     done
 
     for ((part = 1; part <= max_part_number; part += 1)); do
-        if [[ -z "${seen_base_parts[$part]+x}" && -z "${part_has_options[$part]+x}" ]]; then
+        if [[ -z "${seen_top_level_parts[$part]+x}" ]]; then
             reportIssue "MISSING STL PART NUMBER ($part)" "$readme"
+            invalid=1
+        fi
+    done
+
+    for prefix in "${!seen_option_slots[@]}"; do
+        if [[ -n "${seen_part_paths[$prefix]+x}" ]]; then
+            reportIssue "STL PART HAS BOTH BASE AND OPTIONS ($prefix)" "$readme"
             invalid=1
         fi
     done
@@ -923,7 +1078,7 @@ runModelChecks() {
         checkAttributionHeadingExists
         checkLicenseHeadingExists
         checkInstructionsFormat
-        checkPreviewFileExists
+        checkPreviewFileNames
         checkStlNames
         checkAssetsDirectoryIsIgnored
         checkNoPlaceholderLinks

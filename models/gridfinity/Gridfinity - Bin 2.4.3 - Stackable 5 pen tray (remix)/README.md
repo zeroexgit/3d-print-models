@@ -5,7 +5,9 @@ category: tools/organizers
 
 # Gridfinity - Bin 2.4.3 - Stackable 5 pen tray (remix)
 
-![Preview](preview.jpg) ![Preview 1](preview_1.jpg) ![Preview 2](preview_2.jpg)
+![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Stackable Gridfinity tray for five pens or pencils.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`
@@ -18,9 +20,7 @@ category: tools/organizers
 This 2x4x3 Gridfinity tray holds five pens or pencils and is designed to stack.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## Attribution
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is a remix of a 3D print model by **walkitinkid** obtained from <https://www.printables.com/model/1143009-gridfinity-stackable-pen-tray>.
@@ -37,9 +37,7 @@ Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-mode
 > A 2x4x3 Gridfinity tray designed to hold five pens or pencils.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## License
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-NC 4.0**](https://creativecommons.org/licenses/by-nc/4.0/).

@@ -6,9 +6,9 @@ category: toys/game-accessories
 # HeroQuest sleeved-card dashboard (remix)
 
 ![Preview](preview.jpg)
-![Preview_1](preview_1.jpg)
-![Preview_2](preview_2.jpg)
-![Preview_3](preview_3.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: Sleeved-card holder for HeroQuest board game and other similar card games.
 - **Tags**: `dnd`, `cardholder`, `dashboard`, `heroquest`.

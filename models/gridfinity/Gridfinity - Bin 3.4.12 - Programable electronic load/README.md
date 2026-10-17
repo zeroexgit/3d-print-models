@@ -5,7 +5,10 @@ category: tools/organizers
 
 # Gridfinity - Bin 3.4.12 - Programable electronic load
 
-![Preview](preview.jpg) ![Preview 1](preview_1.jpg) ![Preview 2](preview_2.jpg) ![Preview 3](preview_3.jpg)
+![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: Gridfinity holder for a programmable electronic load.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`
@@ -20,9 +23,7 @@ Gridfinity holder sized 3x4x12 units for a programmable electronic load. Exact m
 Th bin features holes for the corner feet, a large cutout to keep the board from shaking around, and the bin is tall enough to be stackable with the electronic load held inside.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## Attribution
-
 <!------------------------------------------------------------------------------------------------->
 
 This is an original 3D print model.
@@ -30,9 +31,7 @@ This is an original 3D print model.
 Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## License
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).

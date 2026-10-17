@@ -5,7 +5,9 @@ category: tools/organizers
 
 # Gridfinity - Bin 4.4.3 - Corrugated tray (remix)
 
-![Preview](preview.jpg) ![Preview 1](preview_1.jpg) ![Preview 2](preview_2.jpg)
+![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Half-height Gridfinity tray with ridges for separating short tools.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`
@@ -18,9 +20,7 @@ category: tools/organizers
 This half-height 4x4 Gridfinity tray uses ridges to keep tweezers and other short tools separated. Its low profile supports easy stacking.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## Attribution
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is a remix of a 3D print model by **Doak** obtained from <https://www.printables.com/model/383854-gridfinity-4x4x05-corrugated-tray>.
@@ -39,9 +39,7 @@ Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-mode
 > Half height to make for easy stacking.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## License
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).

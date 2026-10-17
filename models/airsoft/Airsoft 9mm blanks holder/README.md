@@ -8,7 +8,7 @@ category: sports/airsoft
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
 ![Preview 2](preview_2.jpg)
-![Preview 2](preview_3.jpg)
+![Preview 3](preview_3.jpg)
 
 - **Brief**: 9mm Airsoft Blanks Holder.
 - **Tags**: `airsoft`, `grenade`, `blanks`, `molle`, `tactical`.

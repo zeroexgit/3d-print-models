@@ -1,0 +1,2 @@
+# Model README layout is enforced by scripts/lint-models.sh and its templates.
+models/**/README.md

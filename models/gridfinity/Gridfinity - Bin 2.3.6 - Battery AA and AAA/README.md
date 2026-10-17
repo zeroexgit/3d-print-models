@@ -5,7 +5,9 @@ category: tools/organizers
 
 # Gridfinity - Bin 2.3.6 - Battery AA and AAA
 
-![Preview](preview.jpg) ![Preview 1](preview_1.jpg) ![Preview 2](preview_2.jpg)
+![Preview](preview.jpg)
+![Preview 1](preview_1.jpg)
+![Preview 2](preview_2.jpg)
 
 - **Brief**: Gridfinity organizer for AA and AAA batteries.
 - **Tags**: `gridfinity`, `storage`, `tool holder`, `stackable`
@@ -18,9 +20,7 @@ category: tools/organizers
 Gridfinity organizer for storing AA and AAA batteries. Stackable and with a scoop to easily remove batteries from the bin.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## Attribution
-
 <!------------------------------------------------------------------------------------------------->
 
 This is an original 3D print model.
@@ -28,9 +28,7 @@ This is an original 3D print model.
 Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
-
 ## License
-
 <!------------------------------------------------------------------------------------------------->
 
 This model is licensed under [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/).

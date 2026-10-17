@@ -701,7 +701,7 @@ checkStlNames() {
     ((${#stl_files[@]} > 1)) || return 0
 
     for file_name in "${stl_files[@]}"; do
-        if [[ ! "$file_name" =~ ^([1-9][0-9]*(\.[1-9][0-9]*|\.[A-Z]|\.x)*)\.\ (.+)\.stl$ ]]; then
+        if [[ ! "$file_name" =~ ^((0|[1-9][0-9]*)(\.[1-9][0-9]*|\.[A-Z]|\.x)*)\.\ (.+)\.stl$ ]]; then
             reportIssue "INVALID STL NAME (expected '<part path>. Name.stl')" \
                 "$model_dir/$file_name"
             invalid=1
@@ -709,7 +709,7 @@ checkStlNames() {
         fi
 
         part_path="${BASH_REMATCH[1]}"
-        part_name="${BASH_REMATCH[3]}"
+        part_name="${BASH_REMATCH[4]}"
         IFS='.' read -r -a part_segments <<<"$part_path"
         part_number="${part_segments[0]}"
         if ((part_number > max_part_number)); then

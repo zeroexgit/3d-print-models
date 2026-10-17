@@ -15,10 +15,12 @@ CONFIG="$SCRIPT_DIR/mkdocs.yml"
 
 case "${1:-serve}" in
   serve)
-    uv run --with mkdocs-material --with mkdocs-glightbox mkdocs serve --config-file "$CONFIG"
+    uv run --with mkdocs-material --with 'mkdocs-glightbox==0.4.0' \
+      mkdocs serve --config-file "$CONFIG"
     ;;
   build)
-    uv run --with mkdocs-material --with mkdocs-glightbox mkdocs build --config-file "$CONFIG"
+    uv run --with mkdocs-material --with 'mkdocs-glightbox==0.4.0' \
+      mkdocs build --config-file "$CONFIG"
     ;;
   *)
     echo "Usage: $0 [serve|build]" >&2

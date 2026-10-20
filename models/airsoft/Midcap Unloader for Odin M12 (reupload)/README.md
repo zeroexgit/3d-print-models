@@ -19,7 +19,9 @@ Easy to carry along. Does not replace the lid.
 
 This model is a reupload of a 3D print model by **Thinkscraft** obtained from <https://www.thingiverse.com/thing:4784836>.
 
-I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing (including non-commercial constraints where applicable).
+I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing.
+
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Original Description
 
@@ -28,9 +30,6 @@ I've reuploaded this model only to this repository and its website catalog to ma
 > Installing is very easy: just put the side with the 2 extruding bits in first, then push the other side down to lock it in place.
 >
 > It's a very tight friction fit and will not fall out easily.
-
-<!------------------------------------------------------------------------------------------------->
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

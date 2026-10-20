@@ -16,14 +16,13 @@ category: home/office
 
 This model is a reupload of a 3D print model by **demjansein** obtained from <https://www.printables.com/model/822872-headphone-hook>.
 
-I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing (including non-commercial constraints where applicable).
+I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing.
+
+Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 ### Original Description
 
 > No support, just print it laying it on its back.
-
-<!------------------------------------------------------------------------------------------------->
-Explore my [3D print model collection](https://zeroexgit.github.io/3d-print-models/) to discover more models and check for updates to this one.
 
 <!------------------------------------------------------------------------------------------------->
 ## License

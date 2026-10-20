@@ -17,7 +17,7 @@ category: maker/electronics
 
 This model is a reupload of a 3D print model by **Asalas88** obtained from <https://www.printables.com/model/254365-18650-battery-cap-tpu>.
 
-I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing (including non-commercial constraints where applicable).
+I've reuploaded this model only to this repository and its website catalog to make the model easier to discover, provide a stable reference for what I print, and keep a backup in case the original listing disappears. I only reupload models whose licenses explicitly allow redistribution/resharing.
 
 ### Original Description
 

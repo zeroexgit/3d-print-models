@@ -19,6 +19,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).parent.parent
 MODELS_DIR = REPO_ROOT / "models"
 MAIN_INDEX = MODELS_DIR / "index.md"
+ROOT_INDEX = REPO_ROOT / "index.md"
+ABOUT_PAGE = REPO_ROOT / "doc/about.md"
 
 PREVIEW_EXTS = (".jpg", ".jpeg", ".png", ".webp")
 _BRIEF = re.compile(r"^-\s+\*\*Brief\*\*:\s*(.+)$", re.MULTILINE)
@@ -108,12 +110,12 @@ def _models_in(cat: Path) -> list[Path]:
 # Page generators
 # ---------------------------------------------------------------------------
 
-def _build_main_index() -> str:
+def _build_main_index(prefix: str = "") -> str:
     """Top-level gallery: all models across all categories."""
     lines = ["# Models", "", '<div class="grid cards" markdown>', ""]
     for cat in _categories():
         for model_dir in _models_in(cat):
-            lines.extend(_model_card_lines(cat.name, model_dir, prefix=""))
+            lines.extend(_model_card_lines(cat.name, model_dir, prefix=prefix))
     lines += ["</div>", ""]
     return "\n".join(lines)
 
@@ -129,6 +131,11 @@ def _build_category_index(cat: Path) -> str:
     return "\n".join(lines)
 
 
+def _write_if_changed(path: Path, content: str) -> None:
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.write_text(content, encoding="utf-8")
+
+
 # ---------------------------------------------------------------------------
 # Nav builder
 # ---------------------------------------------------------------------------
@@ -138,16 +145,17 @@ def _build_nav() -> list:
     Build the full MkDocs nav structure.
 
     Top-level items become tabs (navigation.tabs).  Layout:
-      - Models:                        ← tab 1
-          - models/index.md            ← landing page / section header
+      - Models:                        ← homepage / tab 1
+          - index.md                   ← homepage / section header
           - Board Games:               ← left-panel section (collapsed)
               - models/board games/index.md
               - Model: models/.../README.md
           - ...
-      - Contact: doc/contact.md        ← tab 2
-      - Donate:  doc/donate.md         ← tab 3
+      - About: doc/about.md            ← tab 2 (generated from README.md)
+      - Donate: doc/donate.md          ← tab 3
+      - Contact: doc/contact.md        ← tab 4
     """
-    models_section: list = ["models/index.md"]
+    models_section: list = ["index.md"]
     for cat in _categories():
         cat_models = _models_in(cat)
         if not cat_models:
@@ -161,8 +169,9 @@ def _build_nav() -> list:
         models_section.append({cat.name.title(): section_entries})
     nav = [
         {"Models": models_section},
-        {"Contact": "doc/contact.md"},
+        {"About": "doc/about.md"},
         {"Donate": "doc/donate.md"},
+        {"Contact": "doc/contact.md"},
     ]
     return nav
 
@@ -173,7 +182,9 @@ def _build_nav() -> list:
 
 def on_pre_build(config):
     # Generate main index
-    MAIN_INDEX.write_text(_build_main_index(), encoding="utf-8")
+    _write_if_changed(MAIN_INDEX, _build_main_index())
+    _write_if_changed(ROOT_INDEX, _build_main_index(prefix="models/"))
+    _write_if_changed(ABOUT_PAGE, (REPO_ROOT / "README.md").read_text(encoding="utf-8"))
 
     # Generate per-category index pages (only for non-empty categories)
     for cat in _categories():
@@ -181,7 +192,7 @@ def on_pre_build(config):
         if not models:
             continue
         cat_index = cat / "index.md"
-        cat_index.write_text(_build_category_index(cat), encoding="utf-8")
+        _write_if_changed(cat_index, _build_category_index(cat))
 
 
 def on_config(config):

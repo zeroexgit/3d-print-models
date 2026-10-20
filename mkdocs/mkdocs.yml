@@ -55,6 +55,7 @@ exclude_docs: |
   .github/
   .gitignore
   AGENTS.md
+  README.md
   mkdocs/
   models/.gitignore
   models/model_readme_template.md

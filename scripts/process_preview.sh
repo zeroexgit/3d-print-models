@@ -26,7 +26,7 @@ requireCommand trash
 ##==================================================================================================
 
 declare -r MAX_DIMENSION=2048
-declare -r MAX_FILE_SIZE=$((1024 * 1024))
+declare -r MAX_FILE_SIZE=$((2 * 1024 * 1024))
 declare INPUT_FILE=''
 declare OUTPUT_FILE=''
 declare TEMPORARY_FILE=''
@@ -169,7 +169,7 @@ processImage() {
     TEMPORARY_FILE=''
 
     if [[ "$output_size" -gt "$MAX_FILE_SIZE" ]]; then
-        printf 'Warning: output remains over 1 MB (%s bytes).\n' "$output_size" >&2
+        printf 'Warning: output remains over 2 MB (%s bytes).\n' "$output_size" >&2
     fi
 
     printf 'Processed %s → %s (%sx%s, %s bytes)\n' \

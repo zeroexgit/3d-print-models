@@ -133,6 +133,9 @@ loadLicenseStatements() {
             current_license_statement="${BASH_REMATCH[1]}"
             current_license_statement="${current_license_statement%"${current_license_statement##*[![:space:]]}"}"
             VALID_LICENSE_STATEMENTS["$current_license_statement"]=1
+            if [[ "$current_license_statement" == 'This model is licensed under [**CC '* ]]; then
+                VALID_LICENSE_TYPES["$current_license_statement|proxy"]=1
+            fi
         elif [[ -n "$current_license_statement" && "$line" =~ ^[[:space:]]+-[[:space:]](.+)$ ]]; then
             license_type="${BASH_REMATCH[1]}"
             license_type="${license_type%"${license_type##*[![:space:]]}"}"
@@ -833,7 +836,6 @@ checkAttributionMatchesType() {
         remix)
             if ! readmeHasPattern "$readme" '^This model is a remix of ' ||
                 ! readmeHasPattern "$readme" '^### Differences of the remix compared to the original$' ||
-                ! readmeHasPattern "$readme" '^### Original Description$' ||
                 ! readmeHasPattern "$readme" '^Explore my \[3D print model collection\]'; then
                 reportIssue "INVALID REMIX ATTRIBUTION" "$readme"
                 return 1
@@ -865,6 +867,9 @@ checkOriginalDescriptionIsQuoted() {
     local type
     type="$(getFrontmatterField "$readme" "type")"
     [[ "$type" == "original" ]] && return 0
+    if [[ "$type" == "remix" ]] && ! readmeHasPattern "$readme" '^### Original Description$'; then
+        return 0
+    fi
 
     if ! awk '
         /^### Original Description$/ { in_description = 1; found = 1; next }
@@ -1102,6 +1107,9 @@ runModelChecks() {
 lintModelFolder() {
     local readme="$1"
     local model_dir
+    if git -C "$REPOSITORY_DIR" check-ignore --quiet -- "$readme"; then
+        return 0
+    fi
     model_dir="$(dirname "$readme")"
     [[ "$model_dir" == "$MODELS_DIR"/_model-templates/* ]] && return 0
     runModelChecks "$model_dir"

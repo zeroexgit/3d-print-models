@@ -10,7 +10,7 @@ category: tools/organizers
 ![Preview 2](preview_2.jpg)
 ![Preview 3](preview_3.jpg)
 
-- **Brief**: Skadis-mounted bracket for a Casio fx-991 DE X calculator.
+- **Brief**: Skadis-mounted bracket for a Casio calculator.
 - **Tags**: `Skadis`, `calculator`, `holder`
 
 <!------------------------------------------------------------------------------------------------->

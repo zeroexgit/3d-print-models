@@ -686,6 +686,8 @@ checkStlNames() {
     local version
     local max_part_number=0
     local invalid=0
+    local has_root_alternatives=0
+    local has_numbered_parts=0
     local part
     local segment
     local prefix
@@ -704,7 +706,7 @@ checkStlNames() {
     ((${#stl_files[@]} > 1)) || return 0
 
     for file_name in "${stl_files[@]}"; do
-        if [[ ! "$file_name" =~ ^((0|[1-9][0-9]*)(\.[1-9][0-9]*|\.[A-Z]|\.x)*)\.\ (.+)\.stl$ ]]; then
+        if [[ ! "$file_name" =~ ^((0|[1-9][0-9]*|[A-Z])(\.[1-9][0-9]*|\.[A-Z]|\.x)*)\.\ (.+)\.stl$ ]]; then
             reportIssue "INVALID STL NAME (expected '<part path>. Name.stl')" \
                 "$model_dir/$file_name"
             invalid=1
@@ -715,10 +717,15 @@ checkStlNames() {
         part_name="${BASH_REMATCH[4]}"
         IFS='.' read -r -a part_segments <<<"$part_path"
         part_number="${part_segments[0]}"
-        if ((part_number > max_part_number)); then
-            max_part_number="$part_number"
+        if [[ "$part_number" =~ ^[0-9]+$ ]]; then
+            has_numbered_parts=1
+            if ((part_number > max_part_number)); then
+                max_part_number="$part_number"
+            fi
+            seen_top_level_parts["$part_number"]=1
+        else
+            has_root_alternatives=1
         fi
-        seen_top_level_parts["$part_number"]=1
 
         if [[ -n "${seen_part_paths[$part_path]+x}" ]]; then
             reportIssue "DUPLICATE STL PART PATH ($part_path)" "$model_dir/$file_name"
@@ -748,6 +755,11 @@ checkStlNames() {
             invalid=1
         fi
     done
+
+    if ((has_root_alternatives && has_numbered_parts)); then
+        reportIssue "STL ROOT ALTERNATIVES CANNOT MIX WITH NUMBERED PARTS" "$readme"
+        invalid=1
+    fi
 
     for ((part = 1; part <= max_part_number; part += 1)); do
         if [[ -z "${seen_top_level_parts[$part]+x}" ]]; then

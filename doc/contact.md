@@ -1,10 +1,7 @@
 ---
-title: Contact
-summary: Placeholder page for contact information.
-status: draft
-updated: 2026-05-19
+summary: How to contact me.
 ---
 
 # Contact
 
-zeroex.registry101@passinbox.com
+Drop me a message on whatever platform you downloaded the models from, or email me at _zeroex.registry101@passinbox.com_.

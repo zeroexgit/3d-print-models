@@ -1,12 +1,11 @@
 ---
-title: Donate
-summary: Placeholder page for donation information.
-status: draft
-updated: 2026-05-19
+summary: Ways to support my work.
 ---
 
 # Donate
 
-I still have no donation page, I don't think my models are that great to merit it.
+If I saved you time or helped with a project, please consider supporting me. You can upload photos of your prints to the model's page on the platform where you downloaded the model, or drop me a message. I love hearing from people who use my models, and all feedback is welcome.
 
-But if I saved you time, or helped you with a project, please consider shopping any of the models I'm selling. That'd be so amazing!
+You can also support me by buying me a coffee or filament at [buymeacoffee.com/zeroexcoffee](https://buymeacoffee.com/zeroexcoffee). It keeps the filament flowing.
+
+Thank you!

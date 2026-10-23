@@ -3,7 +3,7 @@ type: original
 category: 3d-printing/parts
 ---
 
-# Bambulab A1 screwdown holder
+# Bambulab A1 screwdown corner holder
 
 ![Preview](preview.jpg)
 ![Preview 1](preview_1.jpg)
@@ -14,8 +14,8 @@ category: 3d-printing/parts
 - **Tags**: `Bambu Lab A1`, `3d-printer`, `mount`, `clamp`, `screwdown`.
 - **Published**:
   [Thingiverse](https://www.thingiverse.com/thing:7425066),
-  [Printables](https://www.printables.com/model/1885202-bambulab-a1-screwdown-holder),
-  [MakerWorld](https://makerworld.com/en/models/3471201-bambulab-a1-screwdown-holder),
+  [Printables](https://www.printables.com/model/1885202-bambulab-a1-screwdown-corner-holder),
+  [MakerWorld](https://makerworld.com/en/models/3471201-bambulab-a1-screwdown-corner-holder),
   [Cults3D](https://cults3d.com/en/3d-model/tool/bambulab-a1-screwdown-holder-zeroex-2).
 
 These corner holders secure a Bambu Lab A1 to a rigid surface with screws. They help keep the printer in place where movement or vibration is a concern, including vehicle installations.
